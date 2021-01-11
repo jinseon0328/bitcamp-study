@@ -1,6 +1,7 @@
 package com.eomcs.lang.ex03;
 
 //# 이스케이프 문자(escape character) = 문자 제어 코드
+//escape 문자에서 탈출하는 문자
 //- 화면에 출력하는 문자가 아니라 문자 출력을 제어하는 문자이다.
 //- 제어 문자
 //  \n - Line Feed(LF), 0x0a
@@ -11,6 +12,7 @@ package com.eomcs.lang.ex03;
 //  \' - Single Quote, 0x27
 //  \" - Double Quote, 0x22
 //  \\ - Backslash, 0x5c
+// \',\",\\은 문자로 표현하라는 뜻
 //
 public class Exam0700 {
   public static void main(String[] args) {
@@ -23,6 +25,7 @@ public class Exam0700 {
     System.out.println("Hello,\tworld!"); // 탭 공간을 추가시키는 문자
     System.out.println("Hello,\fworld!"); // 
     System.out.println("Hello,\"w\"orld!"); // " 문자를 출력시키는 문자
+    //System.out.println("Hello,"w"orld!"); 표현하고 싶을 때
     System.out.println("Hello,'w'orld!"); //"" 안에서 ' 문자는 그냥 적는다.
     System.out.println('\''); // ' 문자를 출력시키는 문자
     System.out.println('"'); // '' 안에서 " 문자는 그냥 적는다.

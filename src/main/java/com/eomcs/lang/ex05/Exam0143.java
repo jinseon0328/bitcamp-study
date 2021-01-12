@@ -12,7 +12,7 @@ public class Exam0143 {
     
     float r1 = f1 + f2;
     // f1과 f2에 들어 있는 값이 유효자릿수라 하더라도
-    // 연산 결과가 유효자릿수가 아니라면 값을 깨진다.
+    // 연산 결과가 유효자릿수가 아니라면 값이 깨진다.
     // => float과 float의 연산 결과는 float이기 때문이다.
     
     System.out.println(r1);

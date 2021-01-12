@@ -103,3 +103,10 @@
     - Exam420~Exam580 복습
     - ex05 예습
     - 필기 정리
+
+    1/12(화)
+
+    - 애플리케이션 아키텍쳐의 변화 공부
+    - mini pms 1-a~c 실습
+    * encoding utf-8을 사용하는 이유
+       : compiler에게 소스코드가 utf-8이라는 것을 어떤 character set으로 저장됐는지 알려주기 위해서 *

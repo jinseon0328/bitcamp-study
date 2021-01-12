@@ -10,6 +10,10 @@ public class Exam0220 {
     System.out.println(12783406);
     System.out.println(1278_3406);
     System.out.println(12_783_406);
+<<<<<<< HEAD
+=======
+    //읽기 쉬우라고 붙이는 _ 12,783,406 처럼 쓰는 것
+>>>>>>> 0ca28187fb70b37f230b111908846cead484c9a5
 
     //숫자 맨 앞 또는 맨 뒤에 삽입할 수 없다.
     //System.out.println(_12783406); 

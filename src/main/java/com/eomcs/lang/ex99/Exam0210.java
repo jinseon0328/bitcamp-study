@@ -7,7 +7,7 @@ public class Exam0210 {
     // 1) 키보드로 입력한 데이터를 읽을 때 사용할 도구를 준비한다.
     java.io.InputStream keyboard = System.in;
 
-    // 2) InputStream은 바이트 단위로 읽는 기능이 있다.
+    // 2) InputStream 변수는 바이트 단위로 읽는 기능이 있다.
     //    바이트 단위로 읽어서 int나 문자열로 바꾸려면 또 코딩해야 하는 불편함이 있다.
     //    이런 불편함을 줄이기 위해 자바에서는 바이트를 개발자가 원하는 값으로
     //    바꿔주는 기능을 제공한다.
@@ -28,7 +28,7 @@ public class Exam0210 {
     //   입력값으로 0d0a 2바이트 값이 들어오고,
     //   nextLine()은 그 전까지 들어온 데이터를 문자열로 만들어 리턴한다.
     String str = keyScan.nextLine();
-    
+
     // 사용자가 입력한 문자열을 출력한다.
     System.out.println(str);
 

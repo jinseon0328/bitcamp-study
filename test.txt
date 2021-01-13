@@ -110,3 +110,8 @@
     - mini pms 1-a~c 실습
     * encoding utf-8을 사용하는 이유
        : compiler에게 소스코드가 utf-8이라는 것을 어떤 character set으로 저장됐는지 알려주기 위해서 *
+
+    1/13(수)
+
+    - ex99 전체 공부, 숙지
+    - mini pms-02 app01~03 숙제

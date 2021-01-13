@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int plus(int a){
-     print("==> %d\n", a);
+     printf("==> %d\n", a);
 
 }
 void print2(float f){

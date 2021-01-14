@@ -1,6 +1,6 @@
 package com.eomcs.lang.ex05;
 
-//# 논리 연산자 : &&, ||, !(not), ^(XOR; exclusive-OR)
+//# 논리 연산자 : &&, ||, !(not), ^(XOR; exclusive-OR) 
 //
 public class Exam0310 {
   public static void main(String[] args) {
@@ -32,6 +32,7 @@ public class Exam0310 {
     // exclusive-OR(XOR)연산자 
     // - 배타적 비교 연산자라 부른다.
     // - 두 개의 값이 다를 때 true이다.
+    // -> 두개값이 다를 때만 OR
     System.out.println(true ^ true);
     System.out.println(false ^ false);
     System.out.println(true ^ false);

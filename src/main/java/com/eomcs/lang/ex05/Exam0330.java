@@ -15,6 +15,7 @@ public class Exam0330 {
     //    JVM은 실행의 효율을 위해 && 연산의 오른쪽을 실행하지 않는다.
     // => 그래서 (b = true) 문장은 실행되지 않는다.
     // r = false
+    //&&는 앞의 연산 결과를 보고 실행할지 안할지 결정한다.
     System.out.printf("a=%b, b=%b, r=%b\n", a, b, r);
 
     a = false;

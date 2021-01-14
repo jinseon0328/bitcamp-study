@@ -11,6 +11,7 @@ public class Exam0412 {
     //     000000000 00000000 00000000 000000110 = 6
 
     System.out.println(3 << 33); // 6
+    // 32비트까지밖에 없는데 33비트 이동하라
     System.out.println(3 << 65); // 6
     System.out.println(3 << 97); // 6
 

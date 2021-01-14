@@ -6,7 +6,7 @@ public class Exam0640 {
   public static void main(String[] args) {
     int i = 2;
     int result = i++ + i++ * i++;
-    // 연산자 우선수위: 
+    // 연산자 우선순위: 
     // 1) ++, -- 
     // 2) *, /, %
     // 3) +, -

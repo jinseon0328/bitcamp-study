@@ -6,17 +6,20 @@ public class Exam0140 {
   public static void main(String[] args) {
     // 모든 종류의 데이터에 대해 산술 연산자를 사용할 수 있는 것은 아니다.
     // 데이터 타입에 따라 제공되는 연산자가 다르다.
-    
+
     System.out.println(5.75 % 0.24);  // OK!
+    //부동소수점을 나눌 때 안 나눠져서 마지막에 곱하기 2를 한다
+    //쓰레기(0.0000000000002)가 나온다
     //System.out.println(true % false); // boolean 타입에 대해서는 산술 연산자를 사용할 수 없다.
     //System.out.println(true + true); // 컴파일 오류!
-    
+
     System.out.println("Hello," + "world!"); // OK! '+' 연산자는 문자열 연결 용도로 사용된다.
     //System.out.println("Hello," - "o,"); // 컴파일 오류!
-    //System.out.println("Hello," * 5); // 컴파일 오류!
-    
+    //System.out.println("Hello," * 5); // 컴파일 오류! -> 파이썬에서는 된다
+
     System.out.println(true && true);
     //System.out.println(10 && 10); // 컴파일 오류!이다.
+    //오로지 양쪽이 논리값일 경우에만 가능하다
   }
 }
 

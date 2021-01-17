@@ -1,6 +1,7 @@
 package com.eomcs.lang.ex06;
 
 //# 흐름 제어문 - for 반복문
+//while과 같다
 //
 public class Exam0413 {
   public static void main(String[] args) {
@@ -15,6 +16,5 @@ public class Exam0413 {
       System.out.println(i);
       i++;
     }
-
   }
 }

@@ -2,6 +2,7 @@ package com.eomcs.lang.ex06;
 
 //# 흐름 제어문 - 중첩된 반복문 탈출
 //
+//많이 쓴다 꼭 알아둘 것!
 public class Exam0331 {
   public static void main(String[] args) {
     int x = 2, y = 1;
@@ -25,6 +26,8 @@ public class Exam0331 {
         x++;
         y = 1;
       }
+    // 첫번째 while의 콜리를 눌러보면 알 수 있듯이 첫번째 while의 끝이 여기이므로
+    // 여기까지 라벨이 적용된다. 따라서 break myloop; 이 실행되면 여기로 바로 온다
     System.out.println("종료!!");
   }
 }

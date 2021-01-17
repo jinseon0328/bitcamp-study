@@ -16,9 +16,14 @@ public class Exam0460 {
     list.add(3.14f);
     list.add(true);
     list.add(365);
+    //ArrayList는 컬렉션이고 object.add라는 형태로 넣을 수 있다
+    // .add -> .size -> .get 이 기본 형태이다
+    //즉 컬렉션 object로 선언하면  object.변수라는 형태로 사용하는 것이다
 
     for (int i = 0; i < list.size(); i++)
       System.out.println(list.get(i));
+    //get(i) -> i가 인덱스이므로 인덱스처럼 0부터 시작한다
+
   }
 }
 

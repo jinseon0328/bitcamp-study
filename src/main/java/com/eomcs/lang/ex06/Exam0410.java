@@ -9,6 +9,7 @@ public class Exam0410 {
 
     // for 문의 전형적인 예
     for (int i = 1; i <= 5; i++)
+      // i 는 index의 약자
       System.out.println(i);
     // 실행 순서
     // 1) 변수초기화  => int i = 1

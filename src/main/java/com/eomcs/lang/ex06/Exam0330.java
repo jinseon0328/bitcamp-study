@@ -2,6 +2,7 @@ package com.eomcs.lang.ex06;
 
 //# 흐름 제어문 - 중첩된 반복문 탈출
 //
+//run 해서 console 확인
 public class Exam0330 {
   public static void main(String[] args) {
     int x = 2, y = 1;

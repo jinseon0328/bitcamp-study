@@ -19,6 +19,7 @@ public class Exam0340 {
       i += 1;
       System.out.println(i);
     } while (i < 10);
+    //참인 경우에 계속 반복
   }
 }
 

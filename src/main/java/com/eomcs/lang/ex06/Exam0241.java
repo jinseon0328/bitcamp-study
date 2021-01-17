@@ -12,6 +12,10 @@ public class Exam0241 {
     // => 단 값이 변경되지 않는 final 변수라면 사용할 수 있다.
     //
     final int GUEST = 0, MEMBER = 1, ADMIN = 2;
+    // 변수 : 값을 바꿀 수 있는 메모리
+    // final을 붙이면 변수는 값이 정해지면 바꿀 수 없다 
+    // GUEST 모두 대문자인 것은 값이 정해진 것을 의미한다
+    // final 안 붙이면 상수 되니까 오류 난다
 
     switch (level) {
       case GUEST:

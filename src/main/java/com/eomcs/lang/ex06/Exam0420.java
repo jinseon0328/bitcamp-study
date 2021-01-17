@@ -7,6 +7,7 @@ public class Exam0420 {
     // for 문 안에 선언된 변수는 for 문을 나가는 순간 제거된다.
     for (int i = 1; i <= 5; i++) 
       System.out.println(i);
+    //                     - 반복문이 끝났다
 
     // 그래서 다음과 같이 i 변수의 값을 조회하려 하면 
     // 컴파일 오류가 발생한다.

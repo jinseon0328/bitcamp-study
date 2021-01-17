@@ -12,6 +12,7 @@ public class Exam0320 {
       //count++;
       //sum += count;
       sum += ++count;
+      //후위 증감자
     }
     System.out.printf("count=%d, sum=%d\n", count, sum);
   }

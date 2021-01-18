@@ -23,6 +23,7 @@ public class Exam0130 {
   // 별도의 블록으로 분리하여 이름을 부여한다.
   public static int getSpaceLength(int totalStar, int displayStar) {
     return (totalStar - displayStar) / 2;
+    //전체 별개수 - 출력해야할 별 개수 / 2
   }
 
   public static void main(String[] args) {
@@ -31,10 +32,13 @@ public class Exam0130 {
     int len = keyScan.nextInt();
 
     for (int starLen = 1; starLen <= len; starLen += 2) {
+      //starLen은 별의 개수
       // 출력할 스페이스의 개수를 계산하는 코드를 
       // 블록에 묶어 놓고 이름을 부여해두고 사용하면
       // 코드를 이해하기가 더 쉽다.
       printSpaces(getSpaceLength(len, starLen));
+      //getSpaceLength은 공백의 수
+      //전체 length - 별개수 / 2
       printStars(starLen);
       System.out.println();
     }

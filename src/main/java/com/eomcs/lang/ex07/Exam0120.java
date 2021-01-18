@@ -13,6 +13,7 @@ public class Exam0120 {
   //    "함수(function)"이라 부른다.
   // => 자바는 "메서드" 이름을 주로 사용한다.
   public static void printSpaces(int len) {
+    //별 앞의 공백
     for (int i = 0; i < len; i++) {
       System.out.print(" ");
     }
@@ -22,6 +23,7 @@ public class Exam0120 {
   // 그리고 그 블록의 이름을 붙인다.
   // 이렇게 별도로 빼둔 코드 블록에 이름을 붙인 것을 "메서드=함수"라고 부른다.
   //
+  //별 출력
   public static void printStars(int len) {
     for (int i = 0; i < len; i++) {
       System.out.print("*");
@@ -37,6 +39,7 @@ public class Exam0120 {
       // 명령 코드들을 기능 별로 묶어 놓고
       // 필요할 때마다 다음과 같이 사용하면 
       // 코드를 읽기가 쉬워진다.
+      //공백 길이를 계산
       printSpaces((len - starLen) / 2);
       printStars(starLen);
       System.out.println();

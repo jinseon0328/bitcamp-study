@@ -2,11 +2,7 @@ package com.eomcs.lang.ex03;
 
 //# 리터럴(literal)
 //- 자바 언어로 표현한 값.
-<<<<<<< HEAD
 //
-=======
-// 자바에서 값을 표현한 것
->>>>>>> 0ca28187fb70b37f230b111908846cead484c9a5
 
 public class Exam0100 {
   public static void main(String[] args) {

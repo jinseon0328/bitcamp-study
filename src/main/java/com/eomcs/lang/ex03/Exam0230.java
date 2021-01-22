@@ -12,11 +12,7 @@ public class Exam0230 {
     System.out.println(-2147483648); // 4바이트 음의 정수 최소값
     
     //4바이트 메모리 크기를 초과하면 컴파일 오류가 발생한다.
-<<<<<<< HEAD
     //System.out.println(2147483648);
-=======
-    //System.out.println(2147483648); -> 4바이트 범위를 벗어났다
->>>>>>> 0ca28187fb70b37f230b111908846cead484c9a5
     //System.out.println(-2147483649);
     
     //## 8바이트 정수

@@ -23,6 +23,7 @@ public class Exam0691 {
 
   public static void main(String[] args) {
     System.out.println(A.a); // ?
+    // 이 순간에 A.class가 로딩
     System.out.println(B.b); // ?
 
     // 클래스 로딩 절차

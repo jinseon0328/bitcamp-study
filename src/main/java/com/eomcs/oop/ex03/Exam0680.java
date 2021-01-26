@@ -5,6 +5,7 @@ public class Exam0680 {
 
   public static class A {
     static int a = 100;
+    //           ------초기화 문장(variable initializer)
 
     static {
       a = 200;
@@ -13,6 +14,7 @@ public class Exam0680 {
 
     static {
       b = 400;
+      //      ------초기화 문장(variable initializer)
     }
 
     static int b = 300;
@@ -20,7 +22,7 @@ public class Exam0680 {
 
     // 변수 초기화 문장(variable initializer)을 컴파일 할 때,
     // - 일단 모든 스태틱 필드를 먼저 만든다.
-    // - 스태틱 변수 초기화 문장을 스태틱 블록을 변경한 다음에
+    // - 스태틱 변수 초기화 문장을 스태틱 블록으로 순서대로 옮긴다. 변경한 다음에
     //   스태틱 블록 모두 순서에 따라 한 스태틱 블록에 합친다.
     // - 즉, 스태틱 변수 초기화 문장과 스태틱 블록을 구분하지 않고
     //   선언된 순서대로 하나의 스태틱 블록에 합친다.

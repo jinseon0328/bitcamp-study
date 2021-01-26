@@ -24,6 +24,11 @@ public class Exam0720 {
     // - 존재하는 생성자의 앞 부분에 삽입된다.
     // - 바이트코드(Exam0720$A.class)를 확인해 보라!
     public A() {
+
+      //    {
+      // a = 100;
+      // System.out.println("인스턴스 초기화 블록 실행!");
+      //} 여기에 삽입된다 선언되는 위치와 상관없이 앞 부분에 삽입된다
       a = 200;
       System.out.println("A() 생성자 호출");
     }

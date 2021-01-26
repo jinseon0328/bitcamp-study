@@ -16,6 +16,9 @@ public class Exam0810 {
     // - 바이트코드(Exam0810$A.class)를 확인해 보라!
     //
     // public A() {
+    //   int a;
+    //   int b;
+    //   int c;
     //   a = 100;
     //   b = 200;
     // }

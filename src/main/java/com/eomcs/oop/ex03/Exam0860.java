@@ -15,6 +15,8 @@ public class Exam0860 {
     int a = 100;
 
     // 인스턴스 초기화 블록(initializer block)
+    // 컴파일 할 때 사라진다 생성자에 순서대로 앞부분에 삽입되고
+    // 근데 개발자들 사이에서는 초기화 블록은 앞 부분에 삽입된다고 말한다
     {
       this.a = 200;
       System.out.println("초기화 블록");

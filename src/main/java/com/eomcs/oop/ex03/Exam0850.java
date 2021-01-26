@@ -6,9 +6,11 @@ public class Exam0850 {
   static class A {
 
     int b = 200;
+    //variable initializer
     int c;
 
     A() {
+      //variable initializer 블록
       // 자바 컴파일러는
       // 인스턴스 초기화 블록이나 필드 초기화 문장이 있다면,
       // 종류에 구분없이 선언된 순서 그대로 모든 생성자의 처음 부분에 복사한다.

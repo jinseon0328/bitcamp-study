@@ -27,9 +27,11 @@ public class Exam0520 {
     // => 논리(boolean) : false = 0
     // => 레퍼런스: null = 0
     A obj = new A();
+    //인스턴스 변수를 만들고
 
     System.out.printf("%d, %d, %d, %d, %c, %.1f, %.1f, %b, %s, %s\n", obj.b2, obj.s2, obj.i2,
         obj.l2, obj.c2, obj.f2, obj.d2, obj.bool2, obj.str2, obj.date2);
+    //obj라는 주소를 만들고 해당 필드에 접근
   }
 }
 

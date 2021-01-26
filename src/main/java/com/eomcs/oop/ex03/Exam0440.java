@@ -21,7 +21,8 @@ public class Exam0440 {
     Score(String name) {
       // 다른 생성자를 호출할 때는 this()를 사용한다.
       // 단, 생성자의 첫 문장으로 와야 한다.
-      this(name, 0, 0, 0); // Score(String, int, int, int) 생성자 호출
+      this(name, 0, 0, 0); // Score(String, int, int, int) 다른 생성자 호출
+      // 원래 있던 초기화 놈들을 먼저 말해주고
       System.out.println("Score(String)");
     }
 
@@ -69,7 +70,7 @@ public class Exam0440 {
 }
 
 // 생성자?
-// => 인스턴스(객체)를 생성한 후에 사용하기 전에 유효한 값으로 초기화시키 작업을 수행한다.
+// => 인스턴스(객체)를 생성한 후에 쓰이기 전에 유효한 값으로 초기화시키는 작업을 수행한다.
 //
 
 

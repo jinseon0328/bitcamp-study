@@ -9,6 +9,7 @@ public class Exam0450 {
       return 1;
 
     return value + sum(value - 1);
+    //             ---- sum2라고 생각하기
   }
 
   public static void main(String[] args) {

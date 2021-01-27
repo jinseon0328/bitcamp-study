@@ -12,6 +12,7 @@ public class Exam0620 {
     // 평균: 96.9
     //
     String name = System.getProperty("name");
+    // getProperty은 스태틱메서드 
     String s1 = System.getProperty("kor");
     String s2 = System.getProperty("eng");
     String s3 = System.getProperty("math");
@@ -19,6 +20,7 @@ public class Exam0620 {
     if (name == null || s1 == null || s2 == null || s3 == null) {
       System.out.println(
           "실행 형식: java -cp ./bin/main -Dname=이름 -Dkor=국어점수 -Deng=영어점수 -Dmath=수학점수 com.eomcs.basic.ex07.Exam0620");
+      //   ----key         --------value
       return;
     }
     int kor = Integer.parseInt(s1);

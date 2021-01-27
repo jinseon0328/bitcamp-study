@@ -1,16 +1,19 @@
 // 생성자 활용 예 - 자바에서 제공하는 클래스 사용을 통해 생성자 활용을 익혀보자!
 package com.eomcs.oop.ex04;
 
+import java.nio.charset.Charset;
+
 public class Exam0112 {
 
   public static void main(String[] args) throws Exception {
+    System.out.println(Charset.defaultCharset());
 
     // 한글 문자 코드의 바이트 배열을 가지고 String 인스턴스 초기화시키기.
     byte[] bytes = {
         (byte)0xb0, (byte)0xa1, // 가
         (byte)0xb0, (byte)0xa2, // 각
         (byte)0xb6, (byte)0xca, // 똘
-        (byte)0xb6, (byte)0xcb  // 똠
+        (byte)0xb6, (byte)0xcb  // 똥
     };
     String s1 = new String(bytes);
     System.out.println(s1);
@@ -34,6 +37,8 @@ public class Exam0112 {
     //    그러면 JVM은 바이트 배열에 들어 있는 값을 제대로 유니코드 바꿀 것이다.
     // 
     String s2 = new String(bytes, "EUC-KR");
+    //              ------전기밥솥(내용물, 현미);
+    // 바꾸지 않으면 백미로 안다
     System.out.println(s2);
   }
 }

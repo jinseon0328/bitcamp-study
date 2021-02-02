@@ -1,4 +1,6 @@
 // 캡슐화(encapsulation) - 셋터와 겟터
+// 추상화를 무너뜨리지 않도록 하는 문법
+// 잘못된 값이 들어가지 않게 한다.
 package com.eomcs.oop.ex08.b;
 
 class Customer3 {
@@ -37,7 +39,7 @@ class Customer3 {
   // 인스턴스 변수 age의 값을 넣는 메서드
   // => 나이 값이기 때문에 유효한 값은 1 ~ 150이다.
   public void setAge(int age) {
-    if (age < 1 || age > 120) {
+    if (age < 1 || age > 150) {
       this.age = 0;
       return;
     }

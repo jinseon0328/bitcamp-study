@@ -17,8 +17,10 @@ public class Exam0133 {
     @Override
     public boolean equals(Object obj) {
       if (!(obj.getClass() == Member.class))
+        // .get짬뽕 -> 짬뽕 정보가 나온다
+        //     ----class ----class 정보
         return false;
-      
+
       Member other = (Member) obj;
 
       if (!this.name.equals(other.name))

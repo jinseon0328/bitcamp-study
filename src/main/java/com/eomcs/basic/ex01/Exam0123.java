@@ -29,19 +29,20 @@ public class Exam0123 {
     @Override
     public String toString() {
       return String.format("%s,%d,%d,%d,%d,%.1f",
+          //리턴없이 쓰므로 static으로 사용한다
           this.name, this.kor, this.eng, this.math, 
           this.sum, this.aver);
     }
   }
 
   public static void main(String[] args) {
-    
+
     Score s1 = new Score("홍길동", 100, 100, 100);
-    
+
     String str = s1.toString();
     // Score 클래스에서 Object의 toString()을 오버라이딩 했기 때문에,
     // Score의 toString()을 호출한다.
-    
+
     System.out.println(str);
 
     // println()에 String이 아닌 객체를 넘기면,

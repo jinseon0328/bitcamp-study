@@ -14,8 +14,9 @@ public class Score2 extends Score {
   // 기존 코드를 변경한다.
   @Override
   public void compute() {
-    this.sum = this.kor + this.eng + this.math;
-    this.aver = this.sum / 3f;
+    this.sum = this.kor + this.eng + this.math 
+        +this.music + this.art;
+    this.aver = this.sum / 5f;
   }
 }
 

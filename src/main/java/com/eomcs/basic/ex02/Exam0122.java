@@ -23,6 +23,8 @@ public class Exam0122 {
 
     // Member는 Object에서 상속 받은 equals()를 오버라이딩 하지 않았다.
     // 따라서 단순히 인스턴스가 같은지를 비교할 것이다.
+    // object가 슈퍼 클래스인 경우이므로 주소가 같은지 비교한다
+    // 주소가 같지 않으므로 false
     System.out.println(m1.equals(m2)); // false
   }
 }

@@ -11,6 +11,7 @@ public class Exam0113 {
     // - 있으면 그 String 객체의 주소를 리턴한다.
     // - 없으면 상수풀에 String 객체를 생성한 후 그 주소를 리턴한다.
     String s2 = s1.intern();
+    // heap에 만들어진 인스턴스를 상수풀에도 만들어
     String s3 = "Hello";
 
     System.out.println(s1 == s2);

@@ -4,7 +4,9 @@ package com.eomcs.basic.ex02;
 public class Exam0142 {
   public static void main(String[] args) {
 
-    Object obj = new String("Hello");
+    Object obj = new String("Hello"); //new Object(); -> 문자열이 아닌 걸 문자열이라고 속이지 마라 
+    //-> 컴파일러는 속일 수 있지만
+    // JVM은 불가능하다
 
     // obj가 String 객체를 가리키더라도 
     // obj의 타입이 Object이기 때문에 Object에 선언한 멤버만 사용할 수 있다.

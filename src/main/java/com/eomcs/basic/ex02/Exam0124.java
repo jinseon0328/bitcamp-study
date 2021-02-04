@@ -6,6 +6,9 @@ public class Exam0124 {
 
     StringBuffer b1 = new StringBuffer("Hello");
     StringBuffer b2 = new StringBuffer("Hello");
+    // String만 true
+    // StringBuffer는 false
+
 
     // b1, b2는 서로 다른 인스턴스이다.
     System.out.println(b1 == b2); // false

@@ -14,6 +14,7 @@ public class C {
   // => 파라미터 타입이 달라야 한다.
   public void m1(float a) {} // OK
   public void m1(byte a) {} // OK
+  // public String m1(byte a) // 이미 byte 파라미터 타입 메서드가 있으므로 컴파일 오류!
   public int m1(short a) {return 0;} // OK
   public String m1(long a) {return null;} // OK
 

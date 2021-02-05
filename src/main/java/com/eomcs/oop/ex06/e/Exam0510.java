@@ -2,7 +2,8 @@
 package com.eomcs.oop.ex06.e;
 
 class G {
-  public void m1(final int a) {
+  public void m1(final int a) { // 실무에서는 파라미터를 보통 final로 설정하고
+    // final이 필요 없으면 뺀다!
     // 파라미터는 메서드가 호출될 때 외부의 값을 받는 용도의 변수다.
     // 메서드 안에서 파라미터 값을 임의로 변경하게 되면
     // 처음 받은 파라미터 값을 사용하지 못하는 상황이 발생한다.

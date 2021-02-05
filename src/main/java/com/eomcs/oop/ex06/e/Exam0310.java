@@ -9,6 +9,7 @@ class C {
 
   public C() {
     v1 = 100;
+    // 생성자에서 딱 한번 초기화 시킬 수 있다
   }
 
   public void m1() {

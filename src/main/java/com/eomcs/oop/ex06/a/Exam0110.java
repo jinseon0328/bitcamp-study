@@ -5,6 +5,9 @@ public class Exam0110 {
 
   public static void main(String[] args) {
     Vehicle vehicle = new Vehicle();
+    // vehicle 타입 변수는 "vehicle 객체를 가리킨다"라고 표현한다
+    // Vehicle 클래스의 vehicle 주소에 새로운 Vehicle 인스턴스 만든 그 주소를 넣어놔라가 
+    // 정확한 표현이지만 그렇게 하지 않고 위의 말처럼 말한다
     Bike bike = new Bike();
     Car car = new Car();
     Sedan sedan = new Sedan();
@@ -13,7 +16,10 @@ public class Exam0110 {
     // 레퍼런스는 같은 타입의 객체를 가리킬 수 있을 뿐만아니라
     // 그 클래스의 서브클래스 객체까지 가리킬 수 있다.
     // 왜? 서브 클래스는 항상 상위 클래스의 모든 것을 사용할 수 있기 때문이다.
-    //
+    // Car c = new Sedan();
+    // 상위 타입 레퍼런스는 항상 하위타입 레퍼런스를 가리킬 수 있다.
+    // 서브 클래스의 인스턴스를 만들 때 상위 클래스의 인스턴스 변수도 만든다.
+    // 따라서 상위 클래스의 레퍼런스를 사용하여 그 클래스의 인스턴스 변수를 100% 사용할 수 있다.
     // 이런 규칙에 따라, 다음 vehicle2 변수는 Vehicle 객체 뿐만아니라
     // Bike, Car, Sedan, Truck 객체까지 다양한 서브클래스의 객체를 가리킬 수 있다.
     // 그래서 vehicle2를 "다형적 변수"의 기능을 갖고 있다 말한다.

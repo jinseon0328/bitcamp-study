@@ -1,5 +1,6 @@
 package test.array;
 
+
 public class MyArrayList {
   static Object[] elementData = new Object[5];
   static int size;
@@ -43,18 +44,26 @@ public class MyArrayList {
   }
 
   static public Object set(int index, Object element) {
+    if (index < 0 || index >= size) {
+      throw new ArrayIndexOutOfBoundsException("인덱스가 유효하지 않습니다");
+    }
     Object old = elementData[index];
     elementData[index] = element;
     return old;
   }
 
   static public Object remove(int index) {
+    if (index < 0 || index >= size) {
+      throw new ArrayIndexOutOfBoundsException("인덱스가 유효하지 않습니다");
+    }
     Object old = elementData[index];
 
     for (int i = index; i < size - 1; i++) {
       elementData[i] = elementData[i + 1];
     }
     size--;
+    elementData[size] = null;
+
     return old;
   }
 }

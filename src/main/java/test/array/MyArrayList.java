@@ -2,10 +2,14 @@ package test.array;
 
 
 public class MyArrayList {
-  static Object[] elementData = new Object[5];
-  static int size;
+  Object[] elementData = new Object[5];
+  int size;
 
-  static public boolean add(Object e) {
+  public MyArrayList14(int initialCapacity) {
+    elementData = new Object[initialCapacity];
+  }
+
+  public boolean add(Object e) {
     if(size == elementData.length) {
       grow();
     }
@@ -13,7 +17,7 @@ public class MyArrayList {
     return true;
   }
 
-  static private void grow() {
+  private void grow() {
     System.out.println("배열을 늘려보자!");
     Object[] newArray = new Object[elementData.length + (elementData.length >> 1)];
     for (int i = 0; i < elementData.length; i++) {
@@ -23,7 +27,7 @@ public class MyArrayList {
   }
 
 
-  static public void add(int index, Object element) {
+  public void add(int index, Object element) {
     if (size == elementData.length) {
       grow();
     }
@@ -36,14 +40,14 @@ public class MyArrayList {
     elementData[index] = element;
     size++;
   }
-  static public Object get(int index) {
+  public Object get(int index) {
     if (index < 0 || index >= size) {
       throw new ArrayIndexOutOfBoundsException("인덱스가 유효하지 않습니다");
     }
     return elementData[index];
   }
 
-  static public Object set(int index, Object element) {
+  public Object set(int index, Object element) {
     if (index < 0 || index >= size) {
       throw new ArrayIndexOutOfBoundsException("인덱스가 유효하지 않습니다");
     }
@@ -52,7 +56,7 @@ public class MyArrayList {
     return old;
   }
 
-  static public Object remove(int index) {
+  public Object remove(int index) {
     if (index < 0 || index >= size) {
       throw new ArrayIndexOutOfBoundsException("인덱스가 유효하지 않습니다");
     }

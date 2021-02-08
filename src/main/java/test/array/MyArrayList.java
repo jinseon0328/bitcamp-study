@@ -2,10 +2,10 @@ package test.array;
 
 
 public class MyArrayList {
-  Object[] elementData = new Object[5];
-  int size;
+  private Object[] elementData = new Object[5];
+  private int size;
 
-  public MyArrayList14(int initialCapacity) {
+  public MyArrayList(int initialCapacity) {
     elementData = new Object[initialCapacity];
   }
 
@@ -69,5 +69,8 @@ public class MyArrayList {
     elementData[size] = null;
 
     return old;
+  }
+  public int size() {
+    return this.size;
   }
 }

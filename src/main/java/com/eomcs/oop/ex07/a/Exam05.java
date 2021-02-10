@@ -2,6 +2,7 @@
 package com.eomcs.oop.ex07.a;
 
 abstract class Letter {
+  // Letter class는 템플릿역할을 한다
 
   // 수퍼 클래스는 서브 클래스에게 구현된 멤버를 상속해준다.
   String content;
@@ -12,12 +13,13 @@ abstract class Letter {
 
   // 수퍼 클래스에서 기능이 어떻게 동작하는지 정의한다.
   public void print() {
-    printHeader();
+    /*this.*/printHeader();
+    //this에는 LoveLetter 객체 주소가 들어가 있다
     System.out.println(content);
     System.out.println();
     System.out.printf("              From %s!\n", getSign());
     System.out.println();
-    printHeader();
+    printFooter();
   }
 
   // 세부 사항에 대한 것은
@@ -29,7 +31,7 @@ abstract class Letter {
 
 // 상세한 기능에 대한 구현은 다음과 같이 서브 클래스에게 맡긴다.
 class LoveLetter extends Letter {
-
+  // LoveLetter는 세부구현만 신경쓴다
   @Override
   public void printHeader() {
     System.out.println("♥♥♥♥♥♥♥♥♥♥♥♥♥♥ [사랑을 그대에게] ♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥");

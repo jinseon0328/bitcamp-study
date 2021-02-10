@@ -1,3 +1,4 @@
+// 슈퍼 클래스가 concrete 클래스 일 때 문제점
 // generalization을 통해 수퍼 클래스를 정의할 때 문제점
 package com.eomcs.oop.ex07.c;
 
@@ -11,9 +12,12 @@ public class Exam02 {
     //    수퍼 클래스로서 정의한 것이다.
     // => Sorter는 직접 사용하려고 만든 것이 아니다.
     //
-    // 다음과 같이 Sorter를 직접 사용하는 것은 아무런 의미가 없다.
+    // 따라서 다음과 같이 Sorter를 직접 사용하는 것은 아무런 의미가 없다.
     // 왜?
     // - 정렬을 수행하는 메서드인 sort()가 아무 일도 안한다.
+    // 그럼에도 불구하고 다른 개발자가 sorter 클래스를 직접 사용하는 것을 막을 수 없다.
+    // 왜?
+    // sorter 클래스는 인스턴스를 만들 수 있는 concrete 클래스이기 때문이다
     display(new Sorter(), values);
 
     // 이런 경우, 차라리 Sorter 클래스를 추상 클래스로 만드는 것이 바람직하다.

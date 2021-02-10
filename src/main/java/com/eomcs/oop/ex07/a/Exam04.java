@@ -39,8 +39,9 @@ class A4Sub extends A4 {
 public class Exam04 {
   public static void main(String[] args) {
     A4 obj = new A4Sub();
-    System.out.println(A4.value1);
-    System.out.println(obj.value2);
+    System.out.println(A4.value1); // 스태틱 메서드나 필드를 사용할 때는 반드시 클래스 이름으로 사용
+    System.out.println(obj.value2); // 인스턴스 변수로 사용하지 마라
+    // 인스턴스 메서드나 필드는 당연히 필드가 있어야 한다
     A4.m1();
     obj.m2();
     obj.m3();

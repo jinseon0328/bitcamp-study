@@ -3,7 +3,9 @@ package com.eomcs.oop.ex11.c;
 
 class A {
   class X {
-
+    // class X의 경우 static이 안 붙어있다 -> 
+    // 이 클래스 내부에서 바깥 클래스 class A의 인스턴스 필드를 사용하는 
+    // 것이라고 생각하면 된다
   }
 }
 
@@ -20,6 +22,7 @@ public class Exam0110 {
     A  outer = null;//new A();
 
     //2) 바깥 클래스의 인스턴스 주소를 사용하여 inner class의 인스턴스 생성
+    //유효한 인스턴스 주소가 있어야 한다
     obj = outer.new X();
 
   }

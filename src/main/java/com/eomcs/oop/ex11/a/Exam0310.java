@@ -4,6 +4,9 @@ package com.eomcs.oop.ex11.a;
 public class Exam0310 {
   //중첩 클래스도 클래스의 멤버이기 때문에 필드나 메서드처럼 접근 제한자를 붙일 수 있다.
   private static class A1 {} 
+  // private -> modifier
+  // static -> modifier
+  // 붙이면서 변경되는 것을 modifier 라고 한다
   static class A2 {}
   protected static class A3 {}
   public static class A4 {}
@@ -12,4 +15,6 @@ public class Exam0310 {
   class B2 {}
   protected class B3 {}
   public class B4 {}
+
+
 }

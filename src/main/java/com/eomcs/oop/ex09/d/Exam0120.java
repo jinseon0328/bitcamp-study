@@ -5,6 +5,7 @@ package com.eomcs.oop.ex09.d;
 public class Exam0120 {
 
   interface ProtocolA {
+    // protocol은 규칙
     void rule1();
     void rule2();
     void rule3();

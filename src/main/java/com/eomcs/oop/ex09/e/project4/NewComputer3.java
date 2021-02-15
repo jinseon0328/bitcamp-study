@@ -7,6 +7,7 @@ import com.eomcs.oop.ex09.e.Computer;
 // - 추상 메서드인 경우, 클래스가 반드시 해당 메서드를 구현해야 한다.
 // - default 메서드는 이미 구현했기 때문에 클래스가 다시 구현하지 않아도 컴파일 할 때 문제가 발생하지 않는다.
 // - 개발자가 새 기능 구현을 깜박 잊을 수 있다는 것이 문제다.
+//   새 기능 구현을 깜박 잊으면 컴파일에는 문제가 없으나 JVM에서는 오류가 발생한다?
 // 
 public class NewComputer3 implements Computer {
 

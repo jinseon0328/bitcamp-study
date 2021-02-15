@@ -1,10 +1,14 @@
 // 추상 클래스와 추상 메서드의 활용: 적용 전
 package com.eomcs.oop.ex07.b;
 
+import java.util.Arrays;
+
 public class Exam01 {
 
   public static void main(String[] args) {
-    int[] values = {23, 7, 12, 15, 9, 2, 22, 8, 11, 25, 13, 5};
+    int[] values = createRandomNumber(10000);
+    int[] values12 = Arrays.copyOf(values, 0) 
+        int[] values = {23, 7, 12, 15, 9, 2, 22, 8, 11, 25, 13, 5};
     int[] values2 = {23, 7, 12, 15, 9, 2, 22, 8, 11, 25, 13, 5};
 
     BubbleSort s1 = new BubbleSort();

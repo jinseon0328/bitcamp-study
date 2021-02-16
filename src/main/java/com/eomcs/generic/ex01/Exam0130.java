@@ -17,14 +17,22 @@ public class Exam0130 {
   // => 이때 "What"를 타입을 가리키는 별명으로 "타입 파라미터"라고 부른다.
   //
   public static <What> What echo(What obj) {
+    //                 ----      ----String이 넘어오면
+    //               에코에 리턴하는 타입도 String이다
+    //          ----- 타입 파라미터, 클래스 이름 아님
+
     return obj;
+
   }
 
+
   public static void main(String[] args) {
+    // 제네릭은 사용하는 시점에 그 특정 타입이 정해진다
 
     String obj1 = echo(new String("Hello"));
     Date obj2 = echo(new Date());
     Calendar obj3 = echo(Calendar.getInstance());
+    //                   메서드를 호출한 다음에 그 메서드의 리턴값을 넘겨준다
     File obj4 = echo(new File("okok"));
     Integer obj5 = echo(Integer.valueOf(100));
   }

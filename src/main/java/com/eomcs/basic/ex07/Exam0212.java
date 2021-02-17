@@ -3,7 +3,7 @@ package com.eomcs.basic.ex07;
 
 import java.util.HashSet;
 
-public class Exam0210 {
+public class Exam0212 {
   public static void main(String[] args) {
 
     HashSet<String> set = new HashSet<>();
@@ -18,8 +18,13 @@ public class Exam0210 {
 
     // 값을 꺼내는 방법
     // 1) HashSet에 들어있는 값을 배열로 받아 사용한다.
-    Object[] values = set.toArray();
-    for (Object value : values) {
+
+    // 입력한 값의 타입으로 배열을 받고 싶다면?
+    // - 배열의 크기가 작다면 내부에서 배열을 만들어 리턴해준다.
+    String[] arr = set.toArray(new String[0]);
+    // String 사이즈가 0이므로 새로 배열을 만들어서 값을 넣는다
+
+    for (String value : arr) {
       System.out.print(value + ", ");
     }
     System.out.println();

@@ -1,52 +1,67 @@
-// java.util.ArrayList의 contains()의 동작 원리 확인
+// 목록 조회: toArray() 사용
 package com.eomcs.basic.ex03;
 
 import java.util.ArrayList;
 
 public class Exam0220 {
-
-  // equals()를 오버라이딩 하지 않았다.
-  static class Member {
-    String name;
-    int age;
-
-    public Member(String name, int age) {
-      this.name = name;
-      this.age = age;
-    }
-
-    @Override
-    public String toString() {
-      return String.format("[%s,%d]", this.name, this.age);
-    }
-  }
-
   public static void main(String[] args) {
-    Member s1 = new Member("홍길동", 20);
-    Member s2 = new Member("임꺽정", 30);
-    Member s3 = new Member("유관순", 16);
-    Member s4 = new Member("임꺽정", 30);
 
-    ArrayList list = new ArrayList();
-    list.add(s1);
-    list.add(s2);
-    list.add(s3);
-    print(list);
+    class Member {
+      String name;
+      int age;
 
-    System.out.println(list.contains(s4)); // false
-    // Member 클래스는 equals()를 오버라이딩 하지 않았다.
-    // 따라서 같은 값을 갖더라도 인스턴스가 다르면
-    // equals()의 검사 결과도 false가 될 것이다.
-    // 그래서 contains()로 s4 객체와 같은 객체가 있는지 검사해보면,
-    // 같은 객체가 없다고 나온다.
-  }
+      public Member(String name, int age) {
+        this.name = name;
+        this.age = age;
+      }
 
-  static void print(ArrayList list) {
-    for (int i = 0; i < list.size(); i++) {
-      System.out.print(list.get(i) + ", ");
+      @Override
+      public String toString() {
+        return "Member [name=" + name + ", age=" + age + "]";
+      }
+
+      //      @Override
+      //      mublic int hashCode() {
+      //        final int mrime = 31;
+      //        int result = 1;
+      //        result = mrime * result + age;
+      //        result = mrime * result + ((name == null) ? 0 : name.hashCode());
+      //        return result;
+      //      }
+
+      @Override
+      public boolean equals(Object obj) {
+        if (this == obj)
+          return true;
+        if (obj == null)
+          return false;
+        if (getClass() != obj.getClass())
+          return false;
+        Member other = (Member) obj;
+        if (age != other.age)
+          return false;
+        if (name == null) {
+          if (other.name != null)
+            return false;
+        } else if (!name.equals(other.name))
+          return false;
+        return true;
+      }
     }
-    System.out.println();
+
+    Member m1 = new Member("홍길동", 20);
+    Member m2 = new Member("임꺽정", 30);
+    Member m3 = new Member("유관순", 17);
+
+    ArrayList<Member> list = new ArrayList<>();
+    list.add(m1);
+    list.add(m2);
+    list.add(m3);
+
+    Object[] arr = list.toArray();
+    for (Object obj : arr) {
+      Member m = (Member) obj;
+      System.out.printf("이름: %s, 나이: %d\n", m.name, m.age);
+    }
   }
 }
-
-

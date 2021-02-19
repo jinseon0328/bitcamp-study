@@ -10,7 +10,7 @@ public class Exam0210 {
 
   public static void main(String[] args) {
 
-    Player p0 /*=*/ -> /*new Player*/() //{ -> 중괄호 생략
+    Player p0 /*=*/ /*new Player*/() ->//{ -> 중괄호 생략
     /*@Override
       public void play() {  뻔한 거 생략 */
     System.out.println("Hello");
@@ -22,6 +22,6 @@ public class Exam0210 {
   Player p = () -> System.out.println("Player...");
   p.play();
 }
-}
+
 
 

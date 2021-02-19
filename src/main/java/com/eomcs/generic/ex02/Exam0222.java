@@ -1,4 +1,4 @@
-// 제네릭(Generic) 문법 정리 - 제네릭 파라미터 
+// 제네릭(Generic) 문법 정리 - 제네릭 파라미터 wildcard(?)
 package com.eomcs.generic.ex02;
 
 import java.util.ArrayList;
@@ -21,19 +21,22 @@ public class Exam0222 {
 
   public static void main(String[] args) {
     // m1(ArrayList<?>)
+    // => 어떤 타입으로 제약조건이 걸렸는지 모르겠지만 그 ArrayList 가리킬게!
     // => 모든 타입에 대해 ArrayList 객체를 파라미터로 넘길 수 있다.
     // => 다만 메서드 내부에서는 타입 검사를 할 수 없기 때문에 
     //    add() 메서드 호출 같은 타입 검사가 필요한 코드를 사용한 경우에는 컴파일 오류가 발생한다.
     //
-    //m1(new ArrayList());
-    //m1(new ArrayList<Object>());
-    //m1(new ArrayList<A>());
-    //m1(new ArrayList<B1>());
-    //m1(new ArrayList<B2>());
+    //    m1(new ArrayList());
+    //    m1(new ArrayList<Object>());
+    //    m1(new ArrayList<A>());
+    //    m1(new ArrayList<B1>());
+    //    m1(new ArrayList<B2>());
     ArrayList<B1> my1 = new ArrayList<>();
     my1.add(new B1());
-    my1.add(new B1());
-    my1.add(new B1());
+    // my1.add(new B2());
+    my1.add(new C());
+    // ArrayList<B1> my1       =    new ArrayList<C>(); -> 양쪽 제약조건이 다르다!
+    // my1.add(new C()); 호출가능    my1.add(new C()); 호출불가능
 
     m1(my1); // OK
     m1(new ArrayList<A>());  // OK
@@ -46,6 +49,9 @@ public class Exam0222 {
     // 컴파일러는 파라미터로 받은 ArrayList가 어떤 타입의 값을 다루는 지 알 수 없기 때문에 
     // 그 타입인지 검사해야 하는 메서드를 사용할 때는 컴파일을 명확하게 해줄 수 없다.
     // 따라서 컴파일 오류를 발생시킨다.
+    // 즉 제네릭에 대한 타입 검사가 필요한 메서드가 호출할 때는 
+    // 타입이 지정되어 있지 않기 때문에 유효한 문법인지 알 수 없어서
+    // 컴파일 할 수 없다.
     /*
     list.add(new Object());
     list.add(new A());
@@ -62,6 +68,7 @@ public class Exam0222 {
 
 
     // println()의 파라미터 타입이 Object 이기 때문에 다음 코드는 오류가 아니다.
+    // 조회할 때는 받고 꺼내기만 해서 타입 검사 필요 없어서 되고!
     System.out.println(list.get(0));
     System.out.println(list.get(1));
     System.out.println(list.get(2));

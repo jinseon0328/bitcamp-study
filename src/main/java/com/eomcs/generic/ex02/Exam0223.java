@@ -44,7 +44,7 @@ public class Exam0223 {
   }
 
   static void m1(ArrayList<B1> list) {
-    // 컴파일러는 파라미터로 넘어온 ArrayList가  어떤 타입이든 간에 
+    // 컴파일러는 파라미터로 넘어온 ArrayList가 어떤 타입이든 간에 
     // 문법적으로 B1 타입의 값만 다룬다.
 
     //list.add(new Object()); // 컴파일 오류!

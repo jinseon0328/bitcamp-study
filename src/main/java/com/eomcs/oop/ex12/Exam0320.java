@@ -12,7 +12,7 @@ public class Exam0320 {
   }
 
   public static void main(String[] args) {
-    // 람다 
+    // 람다 : 메서드 호출이 아니라 호출될 메서드를 정의 하는 것
     // 파라미터와 리턴 값이 있는 메서드 구현하기
     test((a, b) -> a + b);
 

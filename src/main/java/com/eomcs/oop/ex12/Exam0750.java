@@ -38,6 +38,23 @@ public class Exam0750 {
     // "메서드 레퍼런스" 이다.
     // => 스태틱 메서드 레퍼런스, 인스턴스 메서드 레퍼런스, 생성자 레퍼런스 
     Collection<String> c1 = prepareNames(ArrayList<String>::new, 
+        //                               ArrayList라는 String 타입의 공장 객체
+        "홍길동", "임꺽정", "유관순", "임꺽정");
+    // 컴파일러는 다음의 자바 코드로 변경한다
+    //ArrayList<String> aa= new ArrayList<>();
+    //Supplier<Collection<String>> list = new Supplier<>() {
+    // 
+    class MySupplier<T> implements Supplier<T> {
+      //                     컬렉션 객체를 만들어주는 공장
+      @Override
+      public T get() {
+        return null;
+      }
+    }
+    MySupplier<Collection> list = new MySupplier<>();
+    //collection<String> c1x= prepareNames
+
+    Collection<String> c1 = prepareNames(ArrayList<String>::new, 
         "홍길동", "임꺽정", "유관순", "임꺽정");
     print(c1.iterator());
 

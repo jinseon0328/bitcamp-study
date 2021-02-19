@@ -6,6 +6,7 @@ public class Exam0160 {
     void print();
   }
 
+
   // 스태틱 필드
   static A obj1 = () -> System.out.println("스태틱 필드");
 

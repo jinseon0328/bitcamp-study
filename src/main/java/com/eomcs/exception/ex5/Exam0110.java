@@ -6,8 +6,10 @@ import java.util.Scanner;
 
 public class Exam0110 {
 
-  static Board read() {
+  static Board read() /*throws NumberFormatException*/{
     try (Scanner keyScan = new Scanner(System.in)) {
+      // Scanner 객체를 쓰고 난 다음에 나가기 전에 자동으로 닫기 위해서 
+      // try 블럭을 사용
       Board board = new Board();
 
       System.out.print("번호> ");

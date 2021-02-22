@@ -14,14 +14,19 @@ public class Exam0320 {
   // 따라서 가능한 그 메서드에서 발생하는 예외는 모두 나열하라!
   //
   static void m(int i) throws Exception {
+    //                          빵
     if (i == 0)
       throw new Exception();
+    //           소보루빵
     else if (i == 1)
       throw new RuntimeException();
+    //             쉬폰빵
     else if (i == 2)
       throw new SQLException();
+    //            슈크림빵
     else
       throw new IOException();
+    //             도넛빵
   }
 
   public static void main(String[] args) {}

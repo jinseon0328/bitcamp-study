@@ -3,7 +3,7 @@ package com.eomcs.exception.ex4;
 
 public class Exam0130 {
 
-  static void m1() {
+  static void m1() /*throws runtimeException*/{
     // RuntimeException 예외를 받을 경우
     // try ~ catch ~ 예외를 처리하지 않으면
     // 자동으로 상위 호출자에게 던진다.
@@ -40,13 +40,14 @@ public class Exam0130 {
       System.out.println(e.getMessage());
     }
 
-    // RuntimeException 계열의 예외를 던지를 메서드를 사용할 때는
+    // RuntimeException 계열의 예외를 던지는 메서드를 사용할 때는
     // 그 호출 경로에 있는 모든 메서드에 굳이 throws 문장을 선언할 필요가 없다.
     // 예외를 처리하고 싶은 곳에서
     // catch 블록으로 받아 처리하면 된다.
     // 즉 중간에 끼어 있는 메서드를 만들 때
     // throws 문장을 선언하지 않아도 되기 때문에 편하다!
     // => 스텔스처럼 조용히 예외를 전달한다.
+    // API 문서에는 runtimeException 자세한 설명을 서술해주어야한다
 
   }
 

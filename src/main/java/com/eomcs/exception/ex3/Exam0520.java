@@ -20,6 +20,7 @@ public class Exam0520 {
   public static void main(String[] args) throws Exception {
     try {
       m(1);
+      // 예외가 발생하면 이 메서드를 호출한 쪽에서 처리하도록 던져주겠다
       // m()에서 발생된 예외는
       // try 블록에서 받지 않는다.
       // 따라서 main() 호출자에게 위임한다.
@@ -30,6 +31,10 @@ public class Exam0520 {
       // catch 블록이 없어도 finally 블록만 사용할 수 있다.
       System.out.println("마무리 작업 실행!");
     }
+    // 이렇게 catch블록이 없는 try~ finally~ 블록을 작성하는 상황:
+    // - 예외가 발생하면 그 처리는 호출자에게 맡긴다.
+    // 그러나 이 메서드를 호출하는 동안 사용한 자원은
+    // 이 메서드를 종료하기 전에 해제시킨다.
   }
 
 }

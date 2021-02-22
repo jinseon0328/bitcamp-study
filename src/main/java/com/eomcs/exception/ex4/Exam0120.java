@@ -3,9 +3,13 @@ package com.eomcs.exception.ex4;
 
 public class Exam0120 {
 
-  static void m1() throws Exception {
+  static void m1() {
     // m2()와 같다.
-    m2();
+    try {
+      m2();
+    } catch (Exception e){
+      System.out.println(e.getMessage());
+    }
   }
 
   static void m2() throws Exception {
@@ -24,8 +28,8 @@ public class Exam0120 {
 
   static void m4() throws Exception {
     // 이 메서드에서 발생된 예외를 main()에 전달하는 방법
-    // => 상위 호출자에게 전달하려면 여기서 catch 해서는 안된다.
-    // => 여기서 예외를 처리하지 않으면 메서드 선언부에 어떤 예외가 발생하는 지
+    // => 상위 호출자에게 전달하려면 여기서 try ~ catch ~ 해서는 안된다.
+    // => 여기서 예외를 처리하지 않으면 메서드 선언부에 어떤 예외가 발생하는지
     // 선언해줘야 한다.
     throw new Exception("m4()에서 예외 발생!");
   }

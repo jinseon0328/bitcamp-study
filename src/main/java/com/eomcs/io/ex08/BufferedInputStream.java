@@ -37,6 +37,10 @@ public class BufferedInputStream {
     }
     return i; // 지금까지 읽은 데이터의 수를 리턴한다.
   }
+
+  public void close() throws IOException {
+    in.close();
+  }
 }
 
 

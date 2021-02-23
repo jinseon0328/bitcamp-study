@@ -43,6 +43,7 @@ public class Exam0410 {
 
     // SOF0(Start of Frame) 정보 읽기
     // - 그림 이미지의 크기 및 샘플링에 관한 정보를 보관하고 있다
+    // 파일마다 데이터의 종류에 따라 자신만의 데이터 형식에 맞춰서 저장한다
     // - 0xFFC0 ~ 0xFFC2 로 표시한다.
 
     // => SOF Marker 찾기

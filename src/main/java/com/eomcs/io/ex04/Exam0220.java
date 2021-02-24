@@ -14,13 +14,14 @@ public class Exam0220 {
     // => 파일에 들어 있는 값 예: 080557d2
     int value = in.read() << 24;   // 00000008 =>   08000000
     value += (in.read() << 16);    // 00000005 => + 00050000
+    //    |로 대체가능
     value += (in.read() << 8);     // 00000057 => + 00005700
     value += in.read();            // 000000d2 => + 000000d2
     //==========================================>   080557d2
 
     in.close();
 
-    System.out.printf("%x\n", value);
+    System.out.printf("%08x\n", value);
   }
 }
 

@@ -18,6 +18,8 @@ public class Exam0110 {
     byte[] bytes = member.name.getBytes("UTF-8");
     out.write(bytes.length); // 1 바이트
     out.write(bytes); // 문자열 바이트 
+    // 읽을 때 어디까지 문자열인지 모르므로 출력
+    // 읽을 때 0B가 11이므로 11개까지가 문자열이다
 
     // 2) 나이 출력 (4바이트)
     out.write(member.age >> 24);

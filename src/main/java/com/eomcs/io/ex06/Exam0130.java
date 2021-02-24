@@ -11,7 +11,8 @@ public class Exam0130 {
     long startTime = System.currentTimeMillis(); // 밀리초
 
     int callCount = 0;
-    while ((b = in.read()) != -1)
+    while ((b = in.read()) != -1) // 왕창 읽어와서 1byte 읽고 매번 꺼내오는 게 아니다
+      //                             1byte씩 읽고 싶은데 속도를 올리는 것 110과 120의 중간
       callCount++; // 파일을 끝까지 읽는다.
 
     // => BufferedInputStream의 read() 메서드는

@@ -1,3 +1,4 @@
+
 // character stream - 문자 단위로 출력하기
 package com.eomcs.io.ex03;
 
@@ -79,6 +80,8 @@ public class Exam0110 {
     //
     // UCS2에서 한글 '가'는 ac00이다.
     out.write(0x7a6bac00);
+    // OutputStream.write()는 1바이트를 버리고
+    // FileWriter.write()는 문자단위로 출력하는 메서드이므로 
     // - 앞의 2바이트(7a6b)는 버린다.
     // - 뒤의 2바이트(ac00)은 UTF-8(eab080) 코드 값으로 변환되어 파일에 출력된다.
 

@@ -21,6 +21,8 @@ public class Exam0523 {
     // String 객체를 만들 때 바이트 배열의 인코딩 문자 집합을 정확하게 알려준다면,
     //  UCS2 코드 값으로 정확하게 변환해 줄 것이다.
     String str = new String(buf, 0, count, "UTF-8");
+    //                                      -----  이 바이트 배열이 뭘로 생성되었는지 알려줄 수 있다
+
     System.out.println(str);
   }
 

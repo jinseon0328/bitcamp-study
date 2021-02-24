@@ -7,17 +7,18 @@ public class Exam0220 {
     FileOutputStream out = new FileOutputStream("temp/data.bin");
 
     System.out.println("데이터 쓰는 중...");
+    //위치 찾는 게 오래 걸리기 때문에 이런 방법을 쓰면 속도가 높아진다
 
     long start = System.currentTimeMillis();
 
-    byte[] buf = new byte[1024];
+    byte[] buf = new byte[8192];
     int size = 0;
 
     for (int i = 0; i < 1000000; i++) {
-      // 일단 바이트 버퍼에 저장한다.
+      // 일단 바이트 버퍼에 저장한다. 꽉 채우고
       buf[size++] = 0x55;
 
-      if (size >= 1024) {
+      if (size >= buf.length) {
         out.write(buf); // 버퍼가 꽉 차면 파일로 내보낸다.
         size = 0; // 다시 버퍼를 쓸 수 있도록 size를 0으로 초기화 한다.
       }

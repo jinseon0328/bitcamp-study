@@ -9,7 +9,7 @@ public class Exam0522 {
     // JVM 환경 변수 'file.encoding' 값
     System.out.printf("file.encoding=%s\n", System.getProperty("file.encoding"));
 
-    FileInputStream in = new FileInputStream("sample/ms949.txt");
+    FileInputStream in = new FileInputStream("sample/ms949.txt"); // 41 42 b0 a1 b0 a2 (AB가각)
 
     // 파일의 데이터를 한 번에 읽어보자.
     byte[] buf = new byte[1000];
@@ -18,6 +18,7 @@ public class Exam0522 {
     in.close();
 
     String str = new String(buf, 0, count);
+    // utf-8일거라고 가정하고 바꾸어 버린다
     System.out.println(str);
 
     // ms949.txt 파일을 읽을 때 문자가 깨지는 이유?

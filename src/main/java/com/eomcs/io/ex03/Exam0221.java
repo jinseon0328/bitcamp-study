@@ -1,4 +1,4 @@
-// Character Stream - 문자 배열 읽기 
+// Character Stream - char[] ==> String 변환하기
 package com.eomcs.io.ex03;
 
 import java.io.FileReader;
@@ -9,6 +9,7 @@ public class Exam0221 {
     FileReader in = new FileReader("temp/test2.txt");
 
     char[] buf = new char[100];
+    // 이미 utf-16이므로 char 지정 하지 않는다
 
     int count = in.read(buf); 
     String str = new String(buf, 0, count);

@@ -9,7 +9,7 @@ public class Exam0121 {
   public static void main(String[] args) throws Exception {
     // 1) 파일의 데이터를 읽을 객체를 준비한다. 
     // => 파일의 문자집합을 명시할 수 있다.
-    Charset charset = Charset.forName("UTF-8");
+    Charset charset = Charset.forName("UTF-8"); 
     FileReader in = new FileReader("sample/utf8.txt", charset); // 41 42 ea b0 81 ea b0 81
 
     // 2) 출력 스트림 객체를 생성할 때 파일의 문자 집합을 지정하면 
@@ -30,7 +30,7 @@ public class Exam0121 {
     // 3) 읽기 도구를 닫는다.
     in.close();
 
-    System.out.printf("%x, %x, %x, %x\n", ch1, ch2, ch3, ch4);
+    System.out.printf("%04x, %04x, %04x, %04x\n", ch1, ch2, ch3, ch4);
   }
 }
 

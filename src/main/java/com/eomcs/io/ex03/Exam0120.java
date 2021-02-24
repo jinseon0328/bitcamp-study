@@ -29,14 +29,14 @@ public class Exam0120 {
     int ch1 = in.read(); // 41 => 0041('A')
     int ch2 = in.read(); // 42 => 0042('B')
 
-    // => 한글은 3바이를 읽어서 2바이트 UCS2로 변환한다.
+    // => 한글은 3바이트를 읽어서 2바이트 UCS2로 변환한다.
     int ch3 = in.read(); // ea b0 80 => ac00('가')
     int ch4 = in.read(); // ea b0 81 => ac01('각')
 
     // 3) 읽기 도구를 닫는다.
     in.close();
 
-    System.out.printf("%x, %x, %x, %x\n", ch1, ch2, ch3, ch4);
+    System.out.printf("%04x, %04x, %04x, %04x\n", ch1, ch2, ch3, ch4);
   }
 }
 

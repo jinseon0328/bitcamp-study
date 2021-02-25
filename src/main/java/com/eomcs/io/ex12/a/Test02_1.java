@@ -13,7 +13,12 @@ public class Test02_1 {
     // => java.io.BufferedOutputStream 클래스를 사용하라.
     // => java.io.DataOutputStream 클래스를 사용하라.
     //
-    Score[] students = {    
+    /*Score[] studentsx = new Score[3];
+    studentsx[0] = new Score("홍길동", 100, 100 100);
+    studentsx[1] = new Score("임꺽정", 90, 90, 90);
+    studentsx[2] = new Score("유관순", 80, 80, 80);
+     */
+    Score[] students = {
         new Score("홍길동", 100, 100, 100),
         new Score("임꺽정", 90, 90, 90),
         new Score("유관순", 80, 80, 80)

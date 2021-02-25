@@ -12,6 +12,8 @@ public class Exam0310 {
 
     // 바이트 배열에서 데이터를 읽는 도구
     ByteArrayInputStream in = new ByteArrayInputStream(buf);
+    // data sink 타입 = data가 어디에 가라앉아 있느냐, 데이터가 어디에서 오는가 
+    // 파일, 메모리, 그외 
 
     // 보통 바이트 배열에서 데이터를 읽을 때 인덱스를 가지고 직접
     // 바이트 배열의 값을 읽는다.
@@ -31,7 +33,7 @@ public class Exam0310 {
       b = in.read();
       if (b == -1)
         break;
-      System.out.printf("%x ", b);
+      System.out.printf("%02x ", b);
     }
     System.out.println();
 

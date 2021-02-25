@@ -12,9 +12,9 @@ public class Exam0410 {
     // 데코레이터 설계 기법의 장점은
     // 다음과 같이 필요한 기능을 쉽게 삽입할 수 있다는 것이다.
     BufferedOutputStream bufOut = new BufferedOutputStream(fileOut);
-
+    // 이거 붙이고
     DataOutputStream out = new DataOutputStream(bufOut);
-
+    // 이거 붙여야한다. 붙이는 순서 상관 있음
     Member member = new Member();
     member.name = "AB가각간";
     member.age = 27;

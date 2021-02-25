@@ -5,6 +5,8 @@ import java.io.InputStream;
 
 public class BufferedInputStream {
   InputStream in;
+  //          인스턴스
+  // 추상클래스 InputStream -> 이 추상클래스를 받은 콘크리트 클래스의 객체 주소를 받겠다
 
   byte[] buf = new byte[8192];
   int size; // 배열에 저장되어 있는 바이트의 수

@@ -5,6 +5,7 @@ public class Exam0330 {
 
   public static void main(String[] args) throws Exception {
     byte[] buf = {0x0b, 0x41, 0x42, (byte) 0xea, (byte) 0xb0, (byte) 0x80, (byte) 0xea, (byte) 0xb0,
+        //                          앞에 3byte(FFF) 잘라라는 뜻 
         (byte) 0x81, (byte) 0xea, (byte) 0xb0, (byte) 0x84, 0x00, 0x00, 0x00, 0x1b, 0x01};
 
     DataByteArrayInputStream in = new DataByteArrayInputStream(buf);

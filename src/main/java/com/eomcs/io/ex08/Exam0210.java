@@ -21,6 +21,7 @@ public class Exam0210 {
     //     DataInputStream에 연결할 수 없다.
     DataOutputStream out2 = new DataOutputStream(out1);
 
+
     Member member = new Member();
     member.name = "AB가각간";
     member.age = 27;

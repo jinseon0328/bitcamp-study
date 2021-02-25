@@ -8,7 +8,9 @@ public class Exam0320 {
   public static void main(String[] args) throws Exception {
     byte[] buf = {
         0x0b, 0x41, 0x42, (byte) 0xea, (byte) 0xb0, (byte) 0x80, (byte) 0xea, (byte) 0xb0,
+        // 11 -> 11개
         (byte) 0x81, (byte) 0xea, (byte) 0xb0, (byte) 0x84, 0x00, 0x00, 0x00, 0x1b, 0x01};
+    //                                                      여기서부터 나이         마지막으로 성별
 
     ByteArrayInputStream in = new ByteArrayInputStream(buf);
 

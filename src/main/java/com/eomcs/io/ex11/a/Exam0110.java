@@ -9,6 +9,7 @@ public class Exam0110 {
   public static void main(String[] args) throws Exception {
     FileOutputStream fileOut = new FileOutputStream("temp/member.data");
     DataOutputStream out = new DataOutputStream(fileOut);
+    //       
 
     Member member = new Member();
     member.name = "AB가각간";

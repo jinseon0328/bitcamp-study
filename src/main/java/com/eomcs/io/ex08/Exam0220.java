@@ -12,6 +12,7 @@ public class Exam0220 {
     // 문자열, int, long, boolean 값을 읽는 것은 DataInputStream 에 맡긴다.
     // => FileInputStream에 DataInputStream의 기능을 덧붙인다.
     DataInputStream in2 = new DataInputStream(in1);
+    //장신구처럼 붙인다          중간에서 가공처리만 한다
 
     Member member = new Member();
 

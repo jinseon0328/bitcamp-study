@@ -12,12 +12,13 @@ public class Client0310 {
     Scanner keyScan = new Scanner(System.in);
     System.out.println("클라이언트 실행!");
 
-    // 1) 소켓을 생성한다.
+    // 1) 빈 소켓을 생성한다.
     Socket socket = new Socket();
     System.out.println("소켓 생성됨.");
 
     // 2) 연결할 서버의 주소를 준비한다.
     SocketAddress socketAddress = new InetSocketAddress("localhost", 8888);
+    // 추상클래스
 
     // 3) 서버와의 연결을 시도한다.
     // => 타임아웃으로 지정된 시간 안에 서버와 연결되지 않으면 즉시 예외가 발생한다.

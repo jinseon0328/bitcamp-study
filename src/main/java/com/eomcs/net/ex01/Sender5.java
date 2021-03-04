@@ -17,10 +17,11 @@ public class Sender5 {
     BufferedInputStream fileIn = new BufferedInputStream(new FileInputStream(file));
 
     System.out.println("서버에 연결 중...");
-    Socket socket = new Socket("192.168.1.15", 8888);
+    Socket socket = new Socket("192.168.0.138", 8888);
     System.out.println("서버에 연결 완료!");
 
     DataOutputStream out = new DataOutputStream(new BufferedOutputStream(socket.getOutputStream()));
+    //                                                    버퍼위치
     Scanner in = new Scanner(new BufferedInputStream(socket.getInputStream()));
 
     System.out.println("서버에 데이터 송신 중...");
@@ -39,6 +40,8 @@ public class Sender5 {
       out.write(b);
     }
     out.flush(); // 버퍼에 남아있는 데이터를 방출하기
+    // close할 때까지 기다리면 상대방이 읽지 못한다!
+    // 개발자가 명시적으로 넣어야한다!
 
     long endTime = System.currentTimeMillis();
 

@@ -51,6 +51,7 @@ public class Server0110 {
         System.out.println("클라이언트가 보낸 1바이트를 기다리고 있음!");
         // => 클라이언트가 1바이트를 보낼 때까지 리턴하지 않는다.
         int request = in.read(); // blocking 모드로 작동한다.
+        //read()는 write() 할때까지 계속 기다린다
 
         System.out.println(request);
 

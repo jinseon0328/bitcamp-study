@@ -60,7 +60,7 @@ public class Client0210 {
       }
 
       // 요청할 때 마다 서버와 연결한다.
-      try (Socket socket = new Socket("localhost", 8888);
+      try (Socket socket = new Socket("192.168.0.67", 8888);
           PrintWriter out = new PrintWriter(socket.getOutputStream());
           BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
 
@@ -75,6 +75,9 @@ public class Client0210 {
         System.out.println(str);
 
         System.out.println("서버와 연결 끊음!");
+
+        if (name.equals("stop"))
+          break;
 
       } catch (Exception e) {
         e.printStackTrace();

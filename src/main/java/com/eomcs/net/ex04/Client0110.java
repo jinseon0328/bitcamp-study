@@ -8,8 +8,9 @@ import java.net.Socket;
 import java.util.Scanner;
 
 // stateful 방식
-// => 서버와 연결한 후, 클라이언트에서 연결을 끊을 때까지 
-//   계속해서 연결을 유지하며 클라이언트 요청을 처리한다.
+// => 서버와 연결한 후, 
+//    클라이언트에서 연결을 끊을 때까지 
+//    계속해서 연결을 유지하며 클라이언트 요청을 처리한다.
 // => 단점: 
 // - 한 번 연결하면 클라이언트가 연결을 끊을 때까지 계속 유지한다.
 // - 클라이언트가 작업을 요청하지 않더라도 계속 
@@ -54,7 +55,7 @@ public class Client0110 {
   public static void main(String[] args) {
     Scanner keyScan = new Scanner(System.in);
 
-    try (Socket socket = new Socket("localhost", 8888);
+    try (Socket socket = new Socket("192.168.0.67", 8888);
         PrintWriter out = new PrintWriter(socket.getOutputStream());
         BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
 

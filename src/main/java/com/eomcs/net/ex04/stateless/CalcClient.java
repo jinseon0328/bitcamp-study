@@ -22,13 +22,16 @@ public class CalcClient {
       try (Socket socket = new Socket("localhost", 8888);
           Scanner in = new Scanner(socket.getInputStream());
           DataOutputStream out = new DataOutputStream(socket.getOutputStream())) {
+        //연결하고
 
         out.writeInt(a);
         out.writeUTF(op);
         out.writeInt(b);
+        // 보내고
 
         String str = in.nextLine();
         System.out.println(str);
+        // 받고 끝냄
 
       } catch (Exception e) {
         System.out.println("서버와 통신 중 오류 발생!");

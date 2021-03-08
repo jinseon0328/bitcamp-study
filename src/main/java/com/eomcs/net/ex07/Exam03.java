@@ -16,6 +16,7 @@ public class Exam03 {
     System.out.printf("포트번호: %d\n", url.getPort());
     System.out.printf("자원경로: %s\n", url.getPath());
     System.out.printf("참조경로(내부위치): %s\n", url.getRef());
+    // url 클래스는 url 정보를 구비하고 있는 클래스이다
     // 자원 경로 다음에 문서의 내부 위치를 지정하면
     // 웹브라우저는 해당 위치로 자동 스크롤 한다.
 

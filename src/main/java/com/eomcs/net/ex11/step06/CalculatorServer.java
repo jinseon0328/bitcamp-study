@@ -22,7 +22,7 @@ public class CalculatorServer {
         while (true) {
           String request = in.readLine();
           String message = compute(request);
-          sendResponse(out, message); // 클라리언트에게 응답한다.
+          sendResponse(out, message); // 클라이언트에게 응답한다.
         }
       }
 

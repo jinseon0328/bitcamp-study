@@ -1,3 +1,4 @@
+// HTTP 맛보기
 package com.eomcs.net.ex04;
 
 import java.io.BufferedReader;
@@ -13,10 +14,12 @@ public class Curl {
         PrintStream out = new PrintStream(socket. getOutputStream());
         BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
 
+      // 웹서버에 요청
       out.println("GET / portal/korea/index.action HTTP/1.1");
       out.println("Host: www.kostat.go.kr");
-      out.println();
+      out.println();       //요청의 끝은 빈줄
 
+      // 웹서버 응답 받기
       String str = null;
       while((str = in.readLine()) != null) {
         System.out.println(str);

@@ -1,3 +1,4 @@
+
 // HTTP 클라이언트 만들기
 package com.eomcs.net.ex06;
 
@@ -8,7 +9,7 @@ import java.util.Scanner;
 // HTTP 요청 프로토콜
 // ---------------------------------
 // GET [자원주소] HTTP/1.1 (CRLF)
-// Host: [서버주소] (CRLF)
+// Host: [서버주소] (CRLF) 요청 헤더
 // (CRLF)
 // ---------------------------------
 //
@@ -26,8 +27,9 @@ public class HttpClient {
     // => macOS에서 JVM을 실행할 때, println()은 문자열 뒤에 0a(LF) 코드만 붙인다.
     // => 이를 해결하려면, 다음과 같이 명확하게 CRLF 코드를 붙여라.
     //
-    out.print("GET /DetailView.aspx?itemno=C204190906 HTTP/1.1\r\n");
-    out.print("Host: itempage3.auction.co.kr\r\n");
+    out.print("GET /DetailView.aspx?itemno=C204190906 HTTP/1.1\r\n"); //requestLine
+    //r\n CRLF 정확하게 
+    out.print("Host: itempage3.auction.co.kr\r\n"); //헤더
     out.print("\r\n");
 
     // HTTP 응답 프로토콜에 따라 서버가 보낸 데이터를 수신

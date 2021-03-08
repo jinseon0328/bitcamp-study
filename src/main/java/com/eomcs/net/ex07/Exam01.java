@@ -30,7 +30,7 @@ public class Exam01 {
     System.out.printf("서버주소: %s\n", url.getHost());
     System.out.printf("포트번호: %d\n", url.getPort()); // 지정하지 않으면 -1 리턴. 실제 접속할 때는 기본 포트번호 사용.
     System.out.printf("자원경로: %s\n", url.getPath());
-    System.out.printf("서버에 보내는 파라미터: %s\n", url.getQuery());
+    System.out.printf("서버에 보내는 파라미터: %s\n", url.getQuery()); // 변수=값
   }
 
 }

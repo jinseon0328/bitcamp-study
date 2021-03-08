@@ -45,6 +45,7 @@ public class RequestProcessor extends Thread {
       // 웹브라우저가 보낸 request line에서 데이터를 추출한다.
       //    예) "GET /plus?a=100&b=200 HTTP/1.1"
       String[] values = request.split(" ")[1].split("\\?"); // ["/plus", "a=100&b=200"]
+      //-- 그냥 물음표만 쓰면 특별한 수식으로 알아듣는다
 
       String op = getOperator(values[0]); // "/plus", "/multiple" 등
 

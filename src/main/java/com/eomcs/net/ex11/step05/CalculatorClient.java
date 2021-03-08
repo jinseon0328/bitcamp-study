@@ -20,6 +20,8 @@ public class CalculatorClient {
 
       while (true) {
         String input = keyboardScanner.nextLine();
+        //out.println(input);
+        //out.flush();
         sendRequest(out, input); // 서버에 요청을 보내기
         receiveResponse(in); // 서버의 실행 결과를 받기
       }

@@ -19,8 +19,10 @@ public class Exam0110 {
     // => 서버와 연결하고 HTTP 요청을 수행한다.
     // => 그런 후에 웹서버의 응답 데이터를 읽어들일 도구를 준비한다.
     InputStream in = url.openStream();
+    //                   status 라인은 지우고 컨텐츠만 추출해서 준다
+    //                   세부적인 정보를 추출할 때는 openConnect(); 사용해라
 
-    // => 서버가 보낸 데이터를 한 줄씩 읽기 위해 데코레이터를 붙인다.
+    // => 서버가 보낸 데이터를 한 줄씩 읽기 위해 데코레이터(BufferdReader)를 붙인다.
     BufferedReader in2 = new BufferedReader(new InputStreamReader(in));
 
     while (true) {

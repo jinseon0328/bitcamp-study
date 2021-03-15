@@ -12,6 +12,9 @@ public class Exam0120 {
         }
       }
     }.start();
+    //실무에서 하는 방법
+    //익명클래스를 정의한 다음에 바로 인스턴스를 만들고
+    //바로 Thread start호출
 
     for (int i = 0; i < 1000; i++) {
       System.out.println(">>>> " + i);

@@ -4,7 +4,7 @@ package com.eomcs.concurrent.ex3;
 public class Exam0230 {
 
   public static void main(String[] args) {
-
+    // 추상메서드가 한 개인 functional 인터페이스이므로 가능
     new Thread(() -> {
       for (int i = 0; i < 1000; i++) {
         System.out.println("===> " + i);

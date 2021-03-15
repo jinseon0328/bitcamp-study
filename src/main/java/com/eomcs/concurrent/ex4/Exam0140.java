@@ -1,4 +1,5 @@
 // 스레드의 생명주기(lifecycle) - running 상태 : CPU 쟁탈전(racing)
+// 스레드 입장에서 CPU를 두고 racing일 수 있다
 package com.eomcs.concurrent.ex4;
 
 public class Exam0140 {

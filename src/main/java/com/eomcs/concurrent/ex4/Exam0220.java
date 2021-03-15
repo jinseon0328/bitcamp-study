@@ -12,7 +12,7 @@ public class Exam0220 {
       public void run() {
         long startTime = System.currentTimeMillis();
         for (int i = 0; i < 100000000; i++)
-          Math.asin(38.567); // 시간 끌기 용. 왜? 부동소수점 연산은 시간을 많이 소요.
+          Math.asin(38.567); // 시간 끌기용. 왜? 부동소수점 연산은 시간을 많이 소요.
         long endTime = System.currentTimeMillis();
         System.out.printf("MyThread = %d\n", endTime - startTime);
       }
@@ -41,7 +41,7 @@ public class Exam0220 {
     // main 스레드 작업 시작
     long startTime = System.currentTimeMillis();
     for (int i = 0; i < 100000000; i++)
-      Math.asin(38.567);
+      Math.asin(38.567); // 부동 소수점 연산을 수행하는 코드를 넣어서 실행 시간을 약간 지연시킨다.
     long endTime = System.currentTimeMillis();
     System.out.printf("main = %d\n", endTime - startTime);
   }

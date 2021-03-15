@@ -15,6 +15,7 @@ public class Exam0110 {
       // run()을 재정의하여 그 메서드에 해당 코드를 두어라!
       @Override
       public void run() {
+        // Thread를 상속 받으면 제일 처음에 호출되는 메서드
         // 별도로 분리해서 병행으로 실행할 코드를 두는 곳!
         for (int i = 0; i < 1000; i++) {
           System.out.println("===> " + i);

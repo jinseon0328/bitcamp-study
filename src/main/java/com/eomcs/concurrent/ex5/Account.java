@@ -12,7 +12,7 @@ public class Account {
   // 한 번에 한 스레드 만이 호출하도록 접근을 제한하고 싶다면
   // 메서드 전체를 동기화 블록으로 선언하라!
   // 어떻게? 메서드 앞에 synchronized를 붙인다.
-  // => 여러 스레드가 접근했을 때 문제가 발생하는 critical section이 아닌데도
+  // => 여러 스레드가 접근했을 때 문제가 발생하지 않는 코드에 대해 
   //    synchronized 사용한다면 실행 속도가 떨어질 것이다.
   //
   // 참고!
@@ -23,8 +23,8 @@ public class Account {
     // withdraw => 출금
 
     // 1) 이 메서드처럼 여러 스레드가 같은 메모리(balance 필드)의 값을 동시에 변경할 때
-    //    문제가 발생하는 코드를 "크리티컬 섹션(임계영역; critical section) 또는 크리티컬 리전(critical region)"
-    //    이라 부른다.
+    //    문제가 발생할 수 있는 코드를 "크리티컬 섹션(임계영역; critical section) 
+    //    또는 크리티컬 리전(critical region)" 이라 부른다.
     // 2) 크리티컬 섹션에 동시에 접근하지 못하게 하는 기법을
     //    "뮤텍스(mutex)" 또는 "세마포어(1)(semaphore)"라 부른다.
     // 3) 자바에서 뮤텍스를 구현하는 방법
@@ -57,5 +57,3 @@ public class Account {
       Math.asin(45.765); // CPU를 뺏길 기회를 제공
   }
 }
-
-

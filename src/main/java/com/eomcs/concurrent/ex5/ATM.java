@@ -1,6 +1,6 @@
 package com.eomcs.concurrent.ex5;
 
-public class ATM extends Thread {
+class ATM extends Thread {
   Account account;
 
   public ATM(String name, Account account) {
@@ -22,5 +22,6 @@ public class ATM extends Thread {
     System.out.printf("%s에서 찾은 돈: %d원\n", this.getName(), sum);
   }
 }
+
 
 

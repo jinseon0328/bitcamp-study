@@ -21,7 +21,6 @@ create table test1(
   filepath4 varchar(255),
   filepath5 varchar(255)
 );
-```
 
 고민해 볼 사항!
 - 첨부 파일의 개수를 5개로 정해놓았다.

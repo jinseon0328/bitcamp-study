@@ -1,4 +1,5 @@
 /* order by */
+/*조회 정렬 기준*/
 
 /* 기본 인덱스 컬럼을 기준으로 정렬한다.*/
 select rno, loc, name
@@ -18,6 +19,7 @@ order by name;
 select rno, loc, name
 from room
 order by name desc;
+/*desc은 descending 내려옴*/
 
 /* 이름은 오름차순, 지점명도 오름차순으로 정렬하기*/
 select rno, loc, name

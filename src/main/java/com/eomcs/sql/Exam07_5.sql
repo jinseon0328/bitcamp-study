@@ -1,4 +1,5 @@
 /* 조인
+ * 데이터를 중복해서 적용하지 않기 위해서 데이터를 분산해서 저장했다
 => 서로 관련된 테이블의 데이터를 연결하여 추출하는 방법
 => 기법
 1) CROSS 조인
@@ -28,6 +29,9 @@ from memb, stnt;
 /* => 컬럼명 앞에 테이블명을 붙이면 너무 길다.
          테이블에 별명을 부여하고
          그 별명을 사용하여 컬럼을 지정하라. */
+/*select m.mno, name, s.mno, work, bank
+from memb as m cross join stnt as s;
+ * as를 써도 되고 안 써도 된다*/
 select m.mno, name, s.mno, work, bank
 from memb m cross join stnt s;
 

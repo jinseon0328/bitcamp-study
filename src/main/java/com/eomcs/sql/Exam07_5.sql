@@ -51,6 +51,8 @@ where m.mno=s.mno;
 
 /* natural join 의 문제점
  * 1) 두 테이블의 조인 기준이 되는 컬럼 이름이 다를 때 연결되지 못한다.
+ *    ex) select m.mno, name, s.sno, work, bank
+          from memb m natural join stnt s; // 학생의 넘버가 sno이면 연결되지 않는다 오류!
    2) 상관 없는 컬럼과 이름이 같을 때 잘못 연결된다.
    3) 같은 이름의 컬럼이 여러 개 있을 경우 잘못 연결된다.
         모든 컬럼의 값이 일치할 경우에만 연결되기 때문이다. */
@@ -132,7 +134,7 @@ select
     r.rno,
     r.loc,
     r.name
-from lect l right outer join room r on l.rno=r.rno;
+from lect l left outer join room r on l.rno=r.rno;
 /* 왼쪽 테이블인 lect를 기준으로 room 데이터를 연결한다.
  * 만약 lect와 일치하는 데이터가 room에 없더라도
  * lect 데이터를 출력한다!

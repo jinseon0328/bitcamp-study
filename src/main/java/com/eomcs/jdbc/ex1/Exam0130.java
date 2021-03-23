@@ -7,7 +7,7 @@ public class Exam0130 {
 
   public static void main(String[] args) {
 
-    // JDBC 드라이버 로딩 방법3: Driver 구현 클래스 로딩과 자동 등록
+    // JDBC 드라이버 등록 방법3: Driver 구현 클래스 로딩과 자동 등록
     // => java.sql.Driver 인터페이스를 구현한 클래스를 로딩하면
     // 해당 클래스에서 자신을 자동으로 DriverManager에게 등록할 것이다.
     // org.mariadb.jdbc.Driver 클래스의 소스를 확인해 보라!
@@ -28,6 +28,7 @@ public class Exam0130 {
       // DriverManager에 같은 Driver 인스턴스가 여러 개 등록될까 걱정하지 말라!
       //
       Class.forName("org.mariadb.jdbc.Driver");
+      // 명시적으로 로딩하는 방법이다
 
       // DriverManager에 자동 등록된 것을 확인해보자!
       java.sql.Driver driver = DriverManager.getDriver("jdbc:mariadb:");

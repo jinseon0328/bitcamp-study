@@ -21,6 +21,7 @@ from room;
 select concat(name, '(', loc, ')') title
 from room;
 
+/*room table에서 이 조건에 해당하는 컬럼을 찾아서 카운트한다*/
 select count(*)
 from room;
 

@@ -19,7 +19,7 @@ order by name;
 select rno, loc, name
 from room
 order by name desc;
-/*desc은 descending 내려옴*/
+/*desc은 descending 내려옴 where절이 있으면 where절 다음에 order by를 쓴다*/
 
 /* 이름은 오름차순, 지점명도 오름차순으로 정렬하기*/
 select rno, loc, name

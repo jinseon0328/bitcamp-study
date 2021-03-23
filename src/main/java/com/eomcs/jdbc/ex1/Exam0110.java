@@ -24,7 +24,7 @@ public class Exam0110 {
 
   public static void main(String[] args) {
 
-    // JDBC 드라이버 로딩
+    // JDBC 드라이버 등록
     // => java.sql.Driver 규칙에 따라 정의된 클래스를 로딩한다.
     // => Driver 구현체는 JDBC에 대한 정보를 제공한다.
     // => 또한 DBMS에 연결작업을 수행한다.
@@ -36,7 +36,7 @@ public class Exam0110 {
     // => DBMS 연결 요청이 들어오면 해당 DBMS의 Driver 구현체를 찾아 작업을 위임한다.
     //
     //
-    // JDBC 드라이버 로딩 방법1: 직접 Driver 구현 객체를 생성하고 직접 등록하기
+    // JDBC 드라이버 등록 방법1: 직접 Driver 구현 객체를 생성하고 직접 등록하기
     // => java.sql.Driver 구현체를 생성하여 JDBC 드라이버 관리자에 등록한다.
     // => MariaDB의 JDBC 드라이버에는 org.mariadb.jdbc.Driver 클래스가 이 구현체이다.
     try {
@@ -44,6 +44,7 @@ public class Exam0110 {
       // 1) Driver 구현체의 인스턴스를 생성한다.
       java.sql.Driver mariadbDriver = new org.mariadb.jdbc.Driver();
       java.sql.Driver oracleDriver = new oracle.jdbc.OracleDriver();
+      //  java.sql.Driver oracleDriver = new oracle.jdbc.driver.OracleDriver();
       java.sql.Driver mssqlDriver = new com.microsoft.sqlserver.jdbc.SQLServerDriver();
 
       // 2) Driver 인스턴스를 드라이버 관리자에 등록한다.
@@ -57,6 +58,8 @@ public class Exam0110 {
       // => DriverManager.getDriver(jdbcUrl);
       // => jdbcUrl
       // jdbc:[DBMS]://서버주소:포트번호/데이터베이스명
+      // 파라미터 내용은
+      // 자바에서 결정하는 것이 아니라 DBMS를 만든 회사에서 정해주는 형식으로 조회해야한다
       java.sql.Driver driver = DriverManager.getDriver("jdbc:mariadb://");
       System.out.println(driver);
 
@@ -65,6 +68,10 @@ public class Exam0110 {
 
       java.sql.Driver driver3 = DriverManager.getDriver("jdbc:sqlserver://");
       System.out.println(driver3);
+
+      // 다음과 같이 파라미터로 지정한 JDBC 드라이버를 못찾으면 예외가 발생한다.
+      java.sql.Driver driver4 = DriverManager.getDriver("jdbc:db2://");
+      System.out.println(driver4);
 
     } catch (SQLException e) {
       e.printStackTrace();

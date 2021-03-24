@@ -37,6 +37,7 @@ public class Exam0410 {
         "jdbc:mysql://localhost:3306/studydb?user=study&password=1111");
 
         // 게시글 입력 처리 객체
+        // 번호는 자동 증가
         PreparedStatement boardStmt = con.prepareStatement(
             "insert into x_board(title,contents) values(?,?)");
 
@@ -48,7 +49,7 @@ public class Exam0410 {
       boardStmt.setString(1, title);
       boardStmt.setString(2, contents);
       int count = boardStmt.executeUpdate();
-      System.out.printf("%d 개 게시글 입력 성공!", count);
+      System.out.printf("%d 개 게시글 입력 성공!\n", count);
 
       // 첨부파일 입력
       int fileCount = 0;

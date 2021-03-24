@@ -29,6 +29,8 @@ public class Exam0141 {
       // mariadb의 Driver 구현체가 로딩되고 객체가 생성되어 등록될 것이다.
 
       // DriverManager에 자동 등록된 것을 확인해보자!
+      // class ServiceLoader가 있다
+      // JVM에서 알아서 jar 파일을 찾아서 자동 등록한다
       java.sql.Driver driver = DriverManager.getDriver("jdbc:mariadb:");
       System.out.println(driver);
 

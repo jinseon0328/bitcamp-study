@@ -85,15 +85,16 @@ public class Exam0220 {
       //
       // 4) 실행 속도
       // [Statement]
-      // - executeUpdate()를 실행할 때 SQL 문을 파라미터로 전달한다.
+      // - executeUpdate()를 실행할 때 SQL문-()안의 문장-을 파라미터로 전달한다.
       // - 호출될 때마다 SQL 문법을 분석하기 때문에 반복 실행하는 경우
       //   SQL 문법도 반복 분석하므로 실행 속도가 느리다.
       // [PreparedStatement]
       // - 미리 SQL 문을 작성한 다음 DBMS 프로토콜에 맞게 파싱해 놓은 후,
       //   executeUpdate() 호출한다.
+      //   여러번 실행할 경우 한 번만 SQL 문을 검사하고 나면
+      //   값만을 계속해서 삽입하기 때문에 속도가 훨씬 빠르다 
       // - 따라서 executeUpdate()를 호출할 때 마다 SQL 문법을
-      //   분석하기 않으므로 반복
-      //   실행하는 경우, Statement 보다 빠르다.
+      //   분석하기 않으므로 반복 해서 실행하는 경우, Statement 보다 빠르다.
       //
     }
   }

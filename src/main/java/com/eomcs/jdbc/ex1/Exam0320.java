@@ -21,12 +21,15 @@ public class Exam0320 {
         //
         java.sql.ResultSet rs = stmt.executeQuery(//
             "select * from x_board order by board_id desc");
+        // 컬럼 번호는 1번 부터
+        // 
 
         ) {
 
       // ResultSet 객체를 사용하여 서버에서 select의 결과 한 레코드(row)를 가져온다.
       //
       boolean isReceived = rs.next(); // 가져왔으면 true, 가져올 게 없다면 false
+      //next()는 딱 한개만
       // 용어정리
       // "레코드(record)"
       // => select를 실행한 후 생성된 결과이다.

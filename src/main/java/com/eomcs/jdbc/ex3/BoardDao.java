@@ -31,6 +31,8 @@ public class BoardDao {
             "select * from x_board order by board_id desc");
         ResultSet rs = stmt.executeQuery()) {
 
+      //리턴값은 인터페이스 클래스로 적어야
+      //밑에서처럼 ArrayList나 LinkedList로 유연하게 쓸 수 있다.
       ArrayList<Board> arr = new ArrayList<>();
       while (rs.next()) {
         Board board = new Board();

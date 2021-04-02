@@ -1,5 +1,5 @@
-// SqlSession 사용법 - select 문 실행하기 : 목록 출력
-package com.eomcs.mybatis.ex02.d;
+// SQL 문에 삽입할 파라미터 전달하기 - 한 개의 값(String) 넘기기
+package com.eomcs.mybatis.ex03.a;
 
 import java.util.List;
 import org.apache.ibatis.io.Resources;
@@ -8,13 +8,13 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import com.eomcs.mybatis.vo.Board;
 
 
-public class Exam0110 {
+public class Exam0130 {
 
   public static void main(String[] args) throws Exception {
     SqlSession sqlSession = new SqlSessionFactoryBuilder().build(Resources.getResourceAsStream(
-        "com/eomcs/mybatis/ex02/d/mybatis-config.xml")).openSession();
+        "com/eomcs/mybatis/ex03/a/mybatis-config.xml")).openSession();
 
-    List<Board> boards = sqlSession.selectList("BoardMapper.selectBoard");
+    List<Board> boards = sqlSession.selectList("BoardMapper.selectBoard3", 10);
 
     // 컬러몀과 자바 객체의 프로퍼티명이 일치한다면 다음과 같이 정상적으로 데이터를 꺼내올 수 있다.
     for (Board b : boards) {
@@ -25,8 +25,8 @@ public class Exam0110 {
           b.getRegisteredDate(),
           b.getViewCount());
     }
-
     sqlSession.close();
+    System.out.println("실행완료");
   }
 
 }

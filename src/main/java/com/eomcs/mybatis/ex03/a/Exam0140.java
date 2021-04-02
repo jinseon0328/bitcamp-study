@@ -1,5 +1,5 @@
-// SqlSession 사용법 - select 문 실행하기 : 목록 출력
-package com.eomcs.mybatis.ex02.d;
+// SQL 문에 삽입할 파라미터 전달하기
+package com.eomcs.mybatis.ex03.a;
 
 import java.util.List;
 import org.apache.ibatis.io.Resources;
@@ -8,15 +8,19 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import com.eomcs.mybatis.vo.Board;
 
 
-public class Exam0110 {
+public class Exam0140 {
 
   public static void main(String[] args) throws Exception {
     SqlSession sqlSession = new SqlSessionFactoryBuilder().build(Resources.getResourceAsStream(
-        "com/eomcs/mybatis/ex02/d/mybatis-config.xml")).openSession();
+        "com/eomcs/mybatis/ex03/a/mybatis-config.xml")).openSession();
 
-    List<Board> boards = sqlSession.selectList("BoardMapper.selectBoard");
+    List<Board> boards = sqlSession.selectList("BoardMapper.selectBoard4", 10);
 
-    // 컬러몀과 자바 객체의 프로퍼티명이 일치한다면 다음과 같이 정상적으로 데이터를 꺼내올 수 있다.
+    // CDATA 섹션
+    // -XML 파서(parser)에게 해당 블록의 내용물이 단순 텍스트임을 알려주는 명령이다
+    // - 문법
+    //       <![CDATA[  내용물  ]]>
+    // - 내용물 안에 XML 파서가 혼동을 일으킬 수 있는 entity가 많을 때 사용하기 적합하다.
     for (Board b : boards) {
       System.out.printf("%d,%s,%s,%s,%d\n",
           b.getNo(),
@@ -25,8 +29,8 @@ public class Exam0110 {
           b.getRegisteredDate(),
           b.getViewCount());
     }
-
     sqlSession.close();
+    System.out.println("실행완료");
   }
 
 }

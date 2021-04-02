@@ -1,5 +1,5 @@
-// SqlSession 사용법 - select 문 실행하기 : 목록 출력
-package com.eomcs.mybatis.ex02.d;
+// #{} 과 ${} 차이점 => ${} 문법의 활용 II
+package com.eomcs.mybatis.ex03.f;
 
 import java.util.List;
 import org.apache.ibatis.io.Resources;
@@ -8,15 +8,17 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import com.eomcs.mybatis.vo.Board;
 
 
-public class Exam0110 {
+public class Exam0130 {
 
   public static void main(String[] args) throws Exception {
     SqlSession sqlSession = new SqlSessionFactoryBuilder().build(Resources.getResourceAsStream(
-        "com/eomcs/mybatis/ex02/d/mybatis-config.xml")).openSession();
+        "com/eomcs/mybatis/ex03/f/mybatis-config.xml")).openSession();
 
-    List<Board> boards = sqlSession.selectList("BoardMapper.selectBoard");
+    // 정렬 방식을 파라미터로 넘기기
+    // => #{} 문법은 파라미터 값을 SQL문에 그대로 삽입한다.
+    // => 그래서 값 뿐만 아니라 다른 것도 가능하다
+    List<Board> boards = sqlSession.selectList("BoardMapper.selectBoard3", "created_date desc, title asc");
 
-    // 컬러몀과 자바 객체의 프로퍼티명이 일치한다면 다음과 같이 정상적으로 데이터를 꺼내올 수 있다.
     for (Board b : boards) {
       System.out.printf("%d,%s,%s,%s,%d\n",
           b.getNo(),

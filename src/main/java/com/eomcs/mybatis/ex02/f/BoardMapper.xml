@@ -17,15 +17,38 @@
 <result column="view_count" property="viewCount"/>
 </resultMap>
   
-  <select id="selectBoard" resultMap="BoardMap">
+  <select id="selectBoard1" resultMap="BoardMap">
     select 
-      board_id, <!-- BoardMap의 연결정보를 참조하기 때문에 별명을 주지 않아도 된다. -->
+      board_id, 
       title,    
       contents,
       created_date, 
       view_count  
     from x_board
   </select>
+  
+    <select id="selectBoard2" resultMap="BoardMap" parameterType="int">
+    select 
+      board_id, 
+      title,    
+      contents,
+      created_date, 
+      view_count  
+    from x_board
+    where board_id=#{no}
+  </select>
+  
+      <select id="selectBoard3" resultType="map" parameterType="int">
+    select 
+      board_id, 
+      title,    
+      contents,
+      created_date, 
+      view_count  
+    from x_board
+    where board_id=#{no}
+  </select>
+  
 </mapper>
 
 

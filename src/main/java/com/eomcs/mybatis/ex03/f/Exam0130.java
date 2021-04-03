@@ -15,9 +15,10 @@ public class Exam0130 {
         "com/eomcs/mybatis/ex03/f/mybatis-config.xml")).openSession();
 
     // 정렬 방식을 파라미터로 넘기기
-    // => #{} 문법은 파라미터 값을 SQL문에 그대로 삽입한다.
-    // => 그래서 값 뿐만 아니라 다른 것도 가능하다
-    List<Board> boards = sqlSession.selectList("BoardMapper.selectBoard3", "created_date desc, title asc");
+    // => ${} 문법은 파라미터 값을 SQL 문에 그대로 삽입한다.
+    //
+    List<Board> boards = sqlSession.selectList("BoardMapper.selectBoard3", 
+        "created_date desc, title asc");
 
     for (Board b : boards) {
       System.out.printf("%d,%s,%s,%s,%d\n",
@@ -32,3 +33,4 @@ public class Exam0130 {
   }
 
 }
+

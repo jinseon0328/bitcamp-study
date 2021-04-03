@@ -15,8 +15,8 @@ public class Exam0120 {
         "com/eomcs/mybatis/ex03/f/mybatis-config.xml")).openSession();
 
     // 정렬 방식을 파라미터로 넘기기
-    // => #{} 문법은 파라미터 값을 SQL문에 그대로 삽입한다.
-    // => 그래서 값 뿐만 아니라 다른 것도 가능하다
+    // => ${} 문법은 파라미터 값을 SQL 문에 그대로 삽입한다.
+    //
     List<Board> boards = sqlSession.selectList("BoardMapper.selectBoard2", "desc");
 
     for (Board b : boards) {

@@ -7,16 +7,15 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import com.eomcs.mybatis.vo.Board;
 
-
 public class Exam0120 {
 
   public static void main(String[] args) throws Exception {
     SqlSession sqlSession = new SqlSessionFactoryBuilder().build(Resources.getResourceAsStream(
         "com/eomcs/mybatis/ex03/a/mybatis-config.xml")).openSession();
 
+    // 예) 특정 제목의 게시글을 가져온다.
     List<Board> boards = sqlSession.selectList("BoardMapper.selectBoard2", "haha");
 
-    // 컬러몀과 자바 객체의 프로퍼티명이 일치한다면 다음과 같이 정상적으로 데이터를 꺼내올 수 있다.
     for (Board b : boards) {
       System.out.printf("%d,%s,%s,%s,%d\n",
           b.getNo(),
@@ -26,7 +25,9 @@ public class Exam0120 {
           b.getViewCount());
     }
     sqlSession.close();
-    System.out.println("실행완료");
+    System.out.println("실행 완료!");
   }
 
 }
+
+

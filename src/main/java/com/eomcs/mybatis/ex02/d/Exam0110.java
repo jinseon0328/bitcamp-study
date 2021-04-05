@@ -1,4 +1,4 @@
-// SqlSession 사용법 - select 문 실행하기 : 목록 출력
+// SqlSession 사용법 - select 문 실행하기 : 자바 객체의 프로퍼티 이름과 컬럼명을 일치시키기 II
 package com.eomcs.mybatis.ex02.d;
 
 import java.util.List;
@@ -6,7 +6,6 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import com.eomcs.mybatis.vo.Board;
-
 
 public class Exam0110 {
 
@@ -30,3 +29,5 @@ public class Exam0110 {
   }
 
 }
+
+

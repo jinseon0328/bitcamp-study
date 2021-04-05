@@ -1,5 +1,4 @@
-// 트랜잭션 다루기 - 트랜잭션 적용 전 => auto commit 상태일 때
-//- 부모 테이블의 데이터와 자식 테이블의 데이터 입력 작업을 묶어서 다루기
+// 트랜잭션 다루기 - 트랜잭션 적용 후 => 수동 commit 상태일 때
 package com.eomcs.mybatis.ex03.e;
 
 import java.util.HashMap;
@@ -65,3 +64,5 @@ public class Exam0120 {
   }
 
 }
+
+

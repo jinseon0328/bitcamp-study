@@ -3,20 +3,38 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- SQL 문장을 찾을 때 사용할 그룹명을 설정한다. 
-     보통 그룹명은 SQL 맵퍼 파일이나 그 파일이 있는 경로를 그룹명으로 지정한다.
-     또는 SQL을 사용할 인터페이스나 클래스 경로를 그룹명으로 지정한다.
-     물론 어떤 이름으로 지정해도 상관없지만, 가능한 위의 규칙을 준수하여 
-     유지보수의 일관성을 유지하라!-->
 <mapper namespace="BoardMapper">
-
-<resultMap type="Board" id="BoardMap">
-<result column="board_id" property="no"/>
-<result column="contents" property="content"/>
-<result column="created_date" property="registeredDate"/>
-<result column="view_count" property="viewCount"/>
-</resultMap>
   
+  <!-- 컬럼명과 자바 객체의 프로퍼티 명을 미리 연결한다.
+       type: 자바 객체의 클래스명 또는 별명
+       id: 연결 정보를 가리키는 식별자 
+  -->
+  <resultMap type="Board" id="BoardMap">
+    <!-- 컬럼명과 자바 객체의 프로퍼티명을 연결한다.
+         column="테이블 컬럼명"
+         property="자바 객체의 프로퍼티명"
+         시작태그와 끝태그 사이에 추가 내용이 없다면 끝태그를 생략하고
+         대신에 시작태그의 끝에 /를 붙인다.
+    -->
+    <!-- 주의! 가능한 primary key 컬럼인 경우 id 태그를 사용하라! -->
+    <id column="board_id" property="no"/> 
+    <!-- 의미 => board_id 컬럼 값은 Board.setNo()을 호출해서 넣으라는 의미 -->
+    
+    <!-- 컬럼 이름과 자바 객체의 프로퍼티 이름이 같을 경우 설정하지 않아도 된다. -->
+    <!--  
+    <result column="title" property="title"/>
+    -->
+    
+    <result column="contents" property="content"/>
+    <result column="created_date" property="registeredDate"/>
+    <result column="view_count" property="viewCount"/>
+  </resultMap>
+  
+  <!-- 위에서 정의한 연결 정보를 사용하고 싶다면,
+       resultMap="컬럼과 프로퍼티의 연결을 정의한 resultMap 아이디" 를 설정하라! 
+       참고!
+       resultType="클래스명 또는 별명"
+  -->
   <select id="selectBoard" resultMap="BoardMap">
     select 
       board_id, <!-- BoardMap의 연결정보를 참조하기 때문에 별명을 주지 않아도 된다. -->

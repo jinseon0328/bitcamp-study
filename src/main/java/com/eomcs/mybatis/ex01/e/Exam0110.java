@@ -6,16 +6,19 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-
 public class Exam0110 {
 
   public static void main(String[] args) throws Exception {
-
+    // 패키지에 소속된 전체 클래스에 대해 별명을 자동으로 부여할 수 있다.
+    // => 단 별명은 클래스 이름이다.
+    //
+    // <typeAliases>
+    //   <package name="com.eomcs.mybatis.ex01.e"/>
+    // </typeAliases>
+    //
     SqlSession sqlSession = new SqlSessionFactoryBuilder().build(Resources.getResourceAsStream(
         "com/eomcs/mybatis/ex01/e/mybatis-config.xml")).openSession();
 
-    // BoardMapper.xml 파일에 보관된 select 문 실행하기
-    // => SqlSession.selectList("네임스페이스명.SQL아이디")
     List<Board> boards = sqlSession.selectList("BoardMapper.selectBoard");
 
     System.out.println(boards.size());

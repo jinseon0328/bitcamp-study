@@ -1,11 +1,9 @@
-
-// #{} 과 ${} 차이점 => ${} 문법의 활용 II
+// #{} 과 ${} 차이점 => ${} 문법의 쓰임새 III
 package com.eomcs.mybatis.ex03.f;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-
 
 public class Exam0140 {
 

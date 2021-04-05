@@ -9,7 +9,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import com.eomcs.mybatis.vo.Board;
 
-
 public class Exam0110 {
 
   public static void main(String[] args) throws Exception {
@@ -21,15 +20,15 @@ public class Exam0110 {
     // - selectList(SQL ID, 파라미터)
     // - 위와 같이 SQL을 실행할 때 오직 한 개의 파라미터만 넘길 수 있다.
     // - 여러 개의 파라미터를 넘기고 싶다면 객체에 담아서 넘겨라!
-
-    // 예) 특정 범위의 번호에 해당하는 게시글을 가져온다.
     // 
-    Map<String, Object> params = new HashMap<>();
+    // 예) 특정 범위의 번호에 해당하는 게시글을 가져온다.
+    //
+    Map<String,Object> params = new HashMap<>();
     params.put("startNo", 5);
     params.put("endNo", 12);
+
     List<Board> boards = sqlSession.selectList("BoardMapper.selectBoard1", params);
 
-    // 컬러몀과 자바 객체의 프로퍼티명이 일치한다면 다음과 같이 정상적으로 데이터를 꺼내올 수 있다.
     for (Board b : boards) {
       System.out.printf("%d,%s,%s,%s,%d\n",
           b.getNo(),
@@ -39,7 +38,9 @@ public class Exam0110 {
           b.getViewCount());
     }
     sqlSession.close();
-    System.out.println("실행완료");
+    System.out.println("실행 완료!");
   }
 
 }
+
+

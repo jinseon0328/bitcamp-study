@@ -3,11 +3,12 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+
   <properties resource="com/eomcs/mybatis/jdbc.properties"></properties>
 
-<typeAliases>
-<package name="com.eomcs.mybatis.vo"/>
-</typeAliases>
+  <typeAliases>
+    <package name="com.eomcs.mybatis.vo"/>
+  </typeAliases>
 
   <environments default="development">
     <environment id="development">
@@ -22,7 +23,14 @@
   </environments>
   
   <mappers>
-  
     <mapper resource="com/eomcs/mybatis/ex03/b/BoardMapper.xml"/>
   </mappers>
 </configuration>
+
+
+
+
+
+
+
+

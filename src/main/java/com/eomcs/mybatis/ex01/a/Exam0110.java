@@ -24,7 +24,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 //
 // Mybatis 도입
 //1) Mybatis 라이브러리 파일을 프로젝트에 등록하기
-// - mvnrepository.com 또는 search.maven.org에서 mybatis를 검색하여 라이브러리 정보 알아낸다.
+// - mvnrepository.com 또는 search.maven.org에서 mybatis를 검색하여 라이브러리 정보를 알아낸다.
 // - build.gradle 파일에 의존 라이브러리 정보를 추가한다.
 // - 'gradle eclipse' 실행하여 라이브러리를 다운로드 받고, 이클립스 설정 파일에 등록한다.
 // - 이클립스 프로젝트를 리프래시하여 변경된 설정 파일의 정보를 반영한다.

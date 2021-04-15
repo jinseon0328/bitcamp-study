@@ -18,21 +18,22 @@ public class Exam05 {
     Class<?> clazz = Exam05.class;
 
     // 메서드 호출 방법
-    // invoke(인스턴스, 아규먼트, ...);
-    //
+    // Method.invoke(인스턴스, 아규먼트, ...);
+    // Method 클래스의 invoke 메서드
 
     // 1) 스태틱 메서드를 찾아 호출하기
     Method m = clazz.getMethod("plus", int.class, int.class);
 
     // => 스태틱 메서드이기 때문에 인스턴스는 지정할 필요가 없다.
     m.invoke(null, 10, 20);
+    //       인스턴스 주소
 
 
     // 2) 인스턴스 메서드를 찾아 호출하기
     m = clazz.getMethod("minus", int.class, int.class);
 
     // => 인스턴스 메서드를 호출할 때는 반드시 인스턴스 주소를 넘겨야 한다.
-    //    m.invoke(null, 10, 20); // 예외 발생!
+    m.invoke(null, 10, 20); // 예외 발생!
 
     Exam05 obj = new Exam05();
     obj.minus(10, 20); // 인스턴스 메서드를 일반적으로 호출할 때

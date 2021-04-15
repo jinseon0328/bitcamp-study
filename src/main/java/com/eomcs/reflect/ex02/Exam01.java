@@ -15,8 +15,9 @@ public class Exam01 {
   public static void main(String[] args) throws Exception {
     //1) 패키지 멤버 클래스
     Class<?> clazz = Class.forName("java.lang.String");
+    // <?> 아무 클래스라고 말하는 것
 
-    // 클래스의 타입 객체를 통해 클래스 정보를 추출할 수 있다.
+    // '클래스의 타입 정보를 담은 객체'를 통해 클래스 정보를 추출할 수 있다.
     System.out.println(clazz.getSimpleName()); // String
     System.out.println(clazz.getName()); // java.lang.String
     System.out.println(clazz.getCanonicalName()); // java.lang.String
@@ -31,7 +32,9 @@ public class Exam01 {
     System.out.println(clazz2.getSimpleName()); // A
     System.out.println(clazz2.getName()); // com.eomcs.reflect.ex02.Exam01$A
     System.out.println(clazz2.getCanonicalName()); // com.eomcs.reflect.ex02.Exam01.A
+    // 자바 코드에서 쓰는 이름
     System.out.println(clazz2.getTypeName()); // com.eomcs.reflect.ex02.Exam01$A
+    // 스트링으로 받을 때 쓰는 이름 원초적인 이름
 
     System.out.println("------------------------------------------");
 
@@ -43,6 +46,7 @@ public class Exam01 {
     System.out.println(clazz3.getName()); // com.eomcs.reflect.ex02.Exam01$1
     System.out.println(clazz3.getCanonicalName()); // null
     System.out.println(clazz3.getTypeName()); // com.eomcs.reflect.ex02.Exam01$1
+    // 선언된 순서대로 $1 $2 이렇게 이름이 붙는다
   }
 
 }

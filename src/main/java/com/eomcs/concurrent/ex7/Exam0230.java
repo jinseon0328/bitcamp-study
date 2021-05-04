@@ -1,4 +1,5 @@
 // Executors 태스크 프레임워크 - 스레드풀 만들기 : 한 개의 스레드를 갖는 스레드풀
+// 영화 예매 사이트를 만들 때 사용
 package com.eomcs.concurrent.ex7;
 
 import java.util.concurrent.ExecutorService;

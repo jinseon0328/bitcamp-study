@@ -32,20 +32,20 @@ public class Exam0210 {
     ExecutorService executorService = Executors.newFixedThreadPool(3);
 
     // 일단 스레드풀의 크기(3 개)만큼 작업 수행을 요청한다.
-    // - 작업은 큐에 등록된 순서대로 보관된다.
+    // - 작업은 큐(대기열)에 등록된 순서대로 보관된다.
     // - 스레드풀은 큐에서 작업을 꺼내 스레드에게 일을 시킨다.
     //
-    executorService.execute(new MyRunnable(6000));
-    executorService.execute(new MyRunnable(3000));
-    executorService.execute(new MyRunnable(9000));
+    executorService.execute(new MyRunnable(6000)); //1번
+    executorService.execute(new MyRunnable(3000)); //2번
+    executorService.execute(new MyRunnable(9000)); //3번
 
     // 스레드풀의 크기를 초과해서 작업 수행을 요청한다면?
     // - 놀고 있는 스레드가 없을 경우,
     //   다른 스레드의 작업이 끝날 때까지 작업큐에 대기하고 있는다.
     // - 작업을 끝낸 스레드가 생기면 큐에서 작업을 꺼내 실행한다.
     //
-    executorService.execute(new MyRunnable(2000));
-    executorService.execute(new MyRunnable(4000));
+    executorService.execute(new MyRunnable(2000)); // 2번 끝나자마자 이 작업을 한다
+    executorService.execute(new MyRunnable(4000)); // 2번이 위의 것을 끝내자마자 또 2번이 한다
 
     System.out.println("main() 종료!");
   }

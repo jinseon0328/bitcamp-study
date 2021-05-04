@@ -38,8 +38,12 @@ public class Exam0320 {
     Future<?> future1 = executorService.submit(new MyRunnable(2000));
     Future<?> future2 = executorService.submit(new MyRunnable(4000));
 
+    // submit() 스레드풀에 작업을 맡기고 바로 리턴한다.
+    // 리턴값이 future라는 객체인데 그 스레드가 작업이 끝났나 안 끝났나 확인하는 용도로 사용한다.
+    // future 객체는 대기 상태로 가기 전까지는 리턴하지 않는다.
+
     // Future.get()
-    // => 요청한 작업이 완료될 때 까지 기다린다.(pending)
+    // => 요청한 작업이 완료될 때 까지 리턴하지 않고 기다린다.(pending)
     // => 요청한 작업이 완료되면 null을 리턴한다.
     //
     future2.get();

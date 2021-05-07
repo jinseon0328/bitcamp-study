@@ -2,37 +2,46 @@
 DROP TABLE IF EXISTS member RESTRICT;
 
 -- 핫플레이스
-DROP TABLE IF EXISTS hotp RESTRICT;
+DROP TABLE IF EXISTS hotplace RESTRICT;
 
 -- 신고게시판
-DROP TABLE IF EXISTS b_notify RESTRICT;
+DROP TABLE IF EXISTS b_report RESTRICT;
 
 -- 할인정보
-DROP TABLE IF EXISTS sale RESTRICT;
+DROP TABLE IF EXISTS discount RESTRICT;
 
--- 클럽게시판
+-- 여행클럽
 DROP TABLE IF EXISTS club RESTRICT;
 
--- 게시판
+-- 게시글
 DROP TABLE IF EXISTS board RESTRICT;
 
 -- 게시판 댓글
 DROP TABLE IF EXISTS b_reply RESTRICT;
 
--- 관리자
-DROP TABLE IF EXISTS admin RESTRICT;
-
 -- QnA게시판
 DROP TABLE IF EXISTS m_qna RESTRICT;
-
--- 답변게시판
-DROP TABLE IF EXISTS a_qna RESTRICT;
 
 -- 탈퇴회원정보
 DROP TABLE IF EXISTS m_delete RESTRICT;
 
 -- FAQ게시판
-DROP TABLE IF EXISTS b_faq RESTRICT;
+DROP TABLE IF EXISTS faq RESTRICT;
+
+-- 여행참여자
+DROP TABLE IF EXISTS c_member RESTRICT;
+
+-- 게시판분류
+DROP TABLE IF EXISTS b_type RESTRICT;
+
+-- 게시판사진
+DROP TABLE IF EXISTS b_photo RESTRICT;
+
+-- 여행클럽신고
+DROP TABLE IF EXISTS c_report RESTRICT;
+
+-- 클럽사진
+DROP TABLE IF EXISTS c_photo RESTRICT;
 
 -- 회원
 CREATE TABLE member (
@@ -41,11 +50,12 @@ CREATE TABLE member (
   mpwd    VARCHAR(100) NOT NULL COMMENT '암호', -- 암호
   memail  VARCHAR(40)  NOT NULL COMMENT '이메일', -- 이메일
   mbirth  DATE         NOT NULL COMMENT '생년월일', -- 생년월일
+  mtel    INTEGER      NOT NULL COMMENT '전화번호', -- 전화번호
   mgender INTEGER      NOT NULL COMMENT '성별', -- 성별
   mphoto  VARCHAR(255) NULL     COMMENT '사진', -- 사진
-  mpost   VARCHAR(7)   NOT NULL COMMENT '우편번호', -- 우편번호
-  maddr   VARCHAR(255) NOT NULL COMMENT '주소', -- 주소
-  mdet    VARCHAR(255) NOT NULL COMMENT '상세주소' -- 상세주소
+  mstatus INTEGER      NOT NULL COMMENT '탈퇴여부', -- 탈퇴여부
+  mpow    INTEGER      NOT NULL COMMENT '관리자권한', -- 관리자권한
+  mcnt    INTEGER      NULL     COMMENT '제제횟수' -- 제제횟수
 )
 COMMENT '회원';
 
@@ -59,95 +69,102 @@ ALTER TABLE member
 -- 회원
 ALTER TABLE member
   ADD CONSTRAINT CK_member -- 회원 체크 제약
-    CHECK (mgender = 1 or mgender = 0);
+    CHECK (mgender = 1 or mgender = 0
+    );
+
+-- 회원
+ALTER TABLE member
+  ADD CONSTRAINT CK_member2 -- 회원 체크 제약2
+    CHECK (mstatus = 1 or mstatus = 0);
 
 ALTER TABLE member
   MODIFY COLUMN mno INTEGER NOT NULL AUTO_INCREMENT COMMENT '회원번호';
 
 -- 핫플레이스
-CREATE TABLE hotp (
+CREATE TABLE hotplace (
   hno      INTEGER      NOT NULL COMMENT '게시판 번호', -- 게시판 번호
-  ano      INTEGER      NOT NULL COMMENT '관리자번호', -- 관리자번호
   htitle   VARCHAR(255) NOT NULL COMMENT '게시판 제목', -- 게시판 제목
   hcontent LONGTEXT     NOT NULL COMMENT '게시판 내용', -- 게시판 내용
   hdate    DATE         NOT NULL COMMENT '등록 날짜', -- 등록 날짜
   hcount   INTEGER      NOT NULL COMMENT '조회수', -- 조회수
+  haddr    VARCHAR(255) NOT NULL COMMENT '주소', -- 주소
   hphoto   VARCHAR(255) NULL     COMMENT '사진' -- 사진
 )
 COMMENT '핫플레이스';
 
 -- 핫플레이스
-ALTER TABLE hotp
-  ADD CONSTRAINT PK_hotp -- 핫플레이스 기본키
+ALTER TABLE hotplace
+  ADD CONSTRAINT PK_hotplace -- 핫플레이스 기본키
     PRIMARY KEY (
       hno -- 게시판 번호
     );
 
-ALTER TABLE hotp
+ALTER TABLE hotplace
   MODIFY COLUMN hno INTEGER NOT NULL AUTO_INCREMENT COMMENT '게시판 번호';
 
 -- 신고게시판
-CREATE TABLE b_notify (
+CREATE TABLE b_report (
   b_nno     INTEGER  NOT NULL COMMENT '신고게시판번호', -- 신고게시판번호
-  bno       INTEGER  NULL     COMMENT '게시판id', -- 게시판id
-  b_nreason LONGTEXT NOT NULL COMMENT '신고 사유', -- 신고 사유
-  b_nresult INTEGER  NULL     COMMENT '처리결과' -- 처리결과
+  bno       INTEGER  NOT NULL COMMENT '게시판id', -- 게시판id
+  mno       INTEGER  NOT NULL COMMENT '회원번호', -- 회원번호
+  b_rreason LONGTEXT NOT NULL COMMENT '신고 사유', -- 신고 사유
+  b_rresult INTEGER  NULL     COMMENT '처리결과' -- 처리결과
 )
 COMMENT '신고게시판';
 
 -- 신고게시판
-ALTER TABLE b_notify
-  ADD CONSTRAINT PK_b_notify -- 신고게시판 기본키
+ALTER TABLE b_report
+  ADD CONSTRAINT PK_b_report -- 신고게시판 기본키
     PRIMARY KEY (
       b_nno -- 신고게시판번호
     );
 
 -- 신고게시판
-ALTER TABLE b_notify
-  ADD CONSTRAINT CK_b_notify -- 신고게시판 체크 제약
-    CHECK (b_nresult = 1 or b_nresult = 0);
+ALTER TABLE b_report
+  ADD CONSTRAINT CK_b_report -- 신고게시판 체크 제약
+    CHECK (b_rresult = 1 or b_rresult = 0);
 
-ALTER TABLE b_notify
+ALTER TABLE b_report
   MODIFY COLUMN b_nno INTEGER NOT NULL AUTO_INCREMENT COMMENT '신고게시판번호';
 
 -- 할인정보
-CREATE TABLE sale (
-  sno      INTEGER      NOT NULL COMMENT '게시판 번호', -- 게시판 번호
-  ano      INTEGER      NOT NULL COMMENT '관리자번호', -- 관리자번호
-  stitle   VARCHAR(255) NOT NULL COMMENT '게시판 제목', -- 게시판 제목
-  scontent LONGTEXT     NOT NULL COMMENT '게시판 내용', -- 게시판 내용
-  sdate    DATETIME     NOT NULL DEFAULT now() COMMENT '등록 날짜', -- 등록 날짜
-  scount   INTEGER      NOT NULL COMMENT '조회수', -- 조회수
-  sphoto   VARCHAR(255) NULL     COMMENT '사진' -- 사진
+CREATE TABLE discount (
+  dno      INTEGER      NOT NULL COMMENT '게시판 번호', -- 게시판 번호
+  dtitle   VARCHAR(255) NOT NULL COMMENT '게시판 제목', -- 게시판 제목
+  dcontent LONGTEXT     NOT NULL COMMENT '게시판 내용', -- 게시판 내용
+  ddate    DATETIME     NOT NULL DEFAULT now() COMMENT '등록 날짜', -- 등록 날짜
+  dcount   INTEGER      NOT NULL COMMENT '조회수', -- 조회수
+  dphoto   VARCHAR(255) NULL     COMMENT '사진' -- 사진
 )
 COMMENT '할인정보';
 
 -- 할인정보
-ALTER TABLE sale
-  ADD CONSTRAINT PK_sale -- 할인정보 기본키
+ALTER TABLE discount
+  ADD CONSTRAINT PK_discount -- 할인정보 기본키
     PRIMARY KEY (
-      sno -- 게시판 번호
+      dno -- 게시판 번호
     );
 
-ALTER TABLE sale
-  MODIFY COLUMN sno INTEGER NOT NULL AUTO_INCREMENT COMMENT '게시판 번호';
+ALTER TABLE discount
+  MODIFY COLUMN dno INTEGER NOT NULL AUTO_INCREMENT COMMENT '게시판 번호';
 
--- 클럽게시판
+-- 여행클럽
 CREATE TABLE club (
-  cno    INTEGER     NOT NULL COMMENT '클럽게시판번호', -- 클럽게시판번호
-  mno    INTEGER     NOT NULL COMMENT '회원번호', -- 회원번호
-  arrive VARCHAR(10) NOT NULL COMMENT '도착지', -- 도착지
-  theme  VARCHAR(10) NOT NULL COMMENT '테마', -- 테마
-  sdate  DATE        NOT NULL COMMENT '출발날짜', -- 출발날짜
-  edate  DATE        NOT NULL COMMENT '도착날짜', -- 도착날짜
-  mtotal INTEGER     NOT NULL COMMENT '인원수', -- 인원수
-  mjoin  INTEGER     NOT NULL COMMENT '현재참여인원' -- 현재참여인원
+  cno      INTEGER      NOT NULL COMMENT '클럽게시판번호', -- 클럽게시판번호
+  mno      INTEGER      NOT NULL COMMENT '클럽방장', -- 클럽방장
+  carrive  VARCHAR(10)  NOT NULL COMMENT '도착지', -- 도착지
+  ctheme   VARCHAR(10)  NOT NULL COMMENT '테마', -- 테마
+  ctitle   VARCHAR(255) NOT NULL COMMENT '제목', -- 제목
+  ccontent LONGTEXT     NOT NULL COMMENT '내용', -- 내용
+  csdt     DATE         NOT NULL COMMENT '출발날짜', -- 출발날짜
+  cedt     DATE         NOT NULL COMMENT '도착날짜', -- 도착날짜
+  ctotal   INTEGER      NOT NULL COMMENT '최대인원수' -- 최대인원수
 )
-COMMENT '클럽게시판';
+COMMENT '여행클럽';
 
--- 클럽게시판
+-- 여행클럽
 ALTER TABLE club
-  ADD CONSTRAINT PK_club -- 클럽게시판 기본키
+  ADD CONSTRAINT PK_club -- 여행클럽 기본키
     PRIMARY KEY (
       cno -- 클럽게시판번호
     );
@@ -155,37 +172,24 @@ ALTER TABLE club
 ALTER TABLE club
   MODIFY COLUMN cno INTEGER NOT NULL AUTO_INCREMENT COMMENT '클럽게시판번호';
 
--- 게시판
+-- 게시글
 CREATE TABLE board (
   bno      INTEGER      NOT NULL COMMENT '게시판id', -- 게시판id
+  b_tno    INTEGER      NOT NULL COMMENT '게시판분류번호', -- 게시판분류번호
   mno      INTEGER      NOT NULL COMMENT '회원번호', -- 회원번호
   btitle   VARCHAR(255) NOT NULL COMMENT '게시판 제목', -- 게시판 제목
-  bcount   INTEGER      NOT NULL COMMENT '조회수', -- 조회수
   bcontent LONGTEXT     NOT NULL COMMENT '게시판내용', -- 게시판내용
-  btype    INTEGER      NOT NULL COMMENT '게시판종류', -- 게시판종류
-  bname    VARCHAR(50)  NOT NULL COMMENT '이름', -- 이름
-  bdate    DATETIME     NOT NULL DEFAULT now() COMMENT '작성일', -- 작성일
-  bstatus  INTEGER      NULL     COMMENT '판매현황', -- 판매현황
-  bphoto   VARCHAR(255) NULL     COMMENT '사진' -- 사진
+  bcount   INTEGER      NOT NULL COMMENT '조회수', -- 조회수
+  bdate    DATETIME     NOT NULL DEFAULT now() COMMENT '작성일' -- 작성일
 )
-COMMENT '게시판';
+COMMENT '게시글';
 
--- 게시판
+-- 게시글
 ALTER TABLE board
-  ADD CONSTRAINT PK_board -- 게시판 기본키
+  ADD CONSTRAINT PK_board -- 게시글 기본키
     PRIMARY KEY (
       bno -- 게시판id
     );
-
--- 게시판
-ALTER TABLE board
-  ADD CONSTRAINT CK_board -- 게시판 체크 제약
-    CHECK (bstatus = 1 or bstatus = 0);
-
--- 게시판
-ALTER TABLE board
-  ADD CONSTRAINT CK_board2 -- 게시판 체크 제약2
-    CHECK (btype = 1 or btype = 2 or btype = 3);
 
 ALTER TABLE board
   MODIFY COLUMN bno INTEGER NOT NULL AUTO_INCREMENT COMMENT '게시판id';
@@ -210,31 +214,15 @@ ALTER TABLE b_reply
 ALTER TABLE b_reply
   MODIFY COLUMN b_rno INTEGER NOT NULL AUTO_INCREMENT COMMENT '댓글 번호';
 
--- 관리자
-CREATE TABLE admin (
-  ano    INTEGER      NOT NULL COMMENT '관리자번호', -- 관리자번호
-  aemail VARCHAR(40)  NOT NULL COMMENT '관리자이메일', -- 관리자이메일
-  apwd   VARCHAR(100) NOT NULL COMMENT '관리자비밀번호' -- 관리자비밀번호
-)
-COMMENT '관리자';
-
--- 관리자
-ALTER TABLE admin
-  ADD CONSTRAINT PK_admin -- 관리자 기본키
-    PRIMARY KEY (
-      ano -- 관리자번호
-    );
-
-ALTER TABLE admin
-  MODIFY COLUMN ano INTEGER NOT NULL AUTO_INCREMENT COMMENT '관리자번호';
-
 -- QnA게시판
 CREATE TABLE m_qna (
   m_qno      INTEGER      NOT NULL COMMENT 'QnA번호', -- QnA번호
   mno        INTEGER      NOT NULL COMMENT '회원번호', -- 회원번호
   m_qdate    DATE         NOT NULL COMMENT '작성일', -- 작성일
+  m_qtitle   VARCHAR(255) NOT NULL COMMENT '제목', -- 제목
   m_qcontent LONGTEXT     NOT NULL COMMENT '내용', -- 내용
-  m_qtitle   VARCHAR(255) NOT NULL COMMENT '제목' -- 제목
+  a_qcontent LONGTEXT     NOT NULL COMMENT '답변내용', -- 답변내용
+  a_qdate    DATE         NOT NULL COMMENT '답변일' -- 답변일
 )
 COMMENT 'QnA게시판';
 
@@ -247,26 +235,6 @@ ALTER TABLE m_qna
 
 ALTER TABLE m_qna
   MODIFY COLUMN m_qno INTEGER NOT NULL AUTO_INCREMENT COMMENT 'QnA번호';
-
--- 답변게시판
-CREATE TABLE a_qna (
-  a_qno      INTEGER  NOT NULL COMMENT '답변게시판번호', -- 답변게시판번호
-  ano        INTEGER  NOT NULL COMMENT '관리자번호', -- 관리자번호
-  m_qno      INTEGER  NOT NULL COMMENT 'QnA번호', -- QnA번호
-  a_qcontent LONGTEXT NOT NULL COMMENT '내용', -- 내용
-  a_qdate    DATE     NOT NULL COMMENT '작성일' -- 작성일
-)
-COMMENT '답변게시판';
-
--- 답변게시판
-ALTER TABLE a_qna
-  ADD CONSTRAINT PK_a_qna -- 답변게시판 기본키
-    PRIMARY KEY (
-      a_qno -- 답변게시판번호
-    );
-
-ALTER TABLE a_qna
-  MODIFY COLUMN a_qno INTEGER NOT NULL AUTO_INCREMENT COMMENT '답변게시판번호';
 
 -- 탈퇴회원정보
 CREATE TABLE m_delete (
@@ -288,9 +256,8 @@ ALTER TABLE m_delete
   MODIFY COLUMN m_dno INTEGER NOT NULL AUTO_INCREMENT COMMENT '탈퇴번호';
 
 -- FAQ게시판
-CREATE TABLE b_faq (
+CREATE TABLE faq (
   fno      INTEGER      NOT NULL COMMENT 'FAQ번호', -- FAQ번호
-  ano      INTEGER      NOT NULL COMMENT '관리자번호', -- 관리자번호
   ftitle   VARCHAR(255) NOT NULL COMMENT '제목', -- 제목
   fdate    DATE         NOT NULL COMMENT '작성일', -- 작성일
   fcontent LONGTEXT     NOT NULL COMMENT '내용' -- 내용
@@ -298,48 +265,142 @@ CREATE TABLE b_faq (
 COMMENT 'FAQ게시판';
 
 -- FAQ게시판
-ALTER TABLE b_faq
-  ADD CONSTRAINT PK_b_faq -- FAQ게시판 기본키
+ALTER TABLE faq
+  ADD CONSTRAINT PK_faq -- FAQ게시판 기본키
     PRIMARY KEY (
       fno -- FAQ번호
     );
 
-ALTER TABLE b_faq
+ALTER TABLE faq
   MODIFY COLUMN fno INTEGER NOT NULL AUTO_INCREMENT COMMENT 'FAQ번호';
 
--- 핫플레이스
-ALTER TABLE hotp
-  ADD CONSTRAINT FK_admin_TO_hotp -- 관리자 -> 핫플레이스
+-- 여행참여자
+CREATE TABLE c_member (
+  mno     INTEGER NOT NULL COMMENT '회원번호', -- 회원번호
+  cno     INTEGER NOT NULL COMMENT '클럽게시판번호', -- 클럽게시판번호
+  c_mdate DATE    NULL     COMMENT '등록일' -- 등록일
+)
+COMMENT '여행참여자';
+
+-- 여행참여자
+ALTER TABLE c_member
+  ADD CONSTRAINT PK_c_member -- 여행참여자 기본키
+    PRIMARY KEY (
+      mno, -- 회원번호
+      cno  -- 클럽게시판번호
+    );
+
+-- 게시판분류
+CREATE TABLE b_type (
+  b_tno    INTEGER      NOT NULL COMMENT '게시판분류번호', -- 게시판분류번호
+  b_ttitle VARCHAR(255) NOT NULL COMMENT '게시판이름' -- 게시판이름
+)
+COMMENT '게시판분류';
+
+-- 게시판분류
+ALTER TABLE b_type
+  ADD CONSTRAINT PK_b_type -- 게시판분류 기본키
+    PRIMARY KEY (
+      b_tno -- 게시판분류번호
+    );
+
+-- 게시판분류
+ALTER TABLE b_type
+  ADD CONSTRAINT CK_b_type -- 게시판분류 체크 제약
+    CHECK (b_tno = 1 or b_tno = 2 or b_tno = 3);
+
+-- 게시판사진
+CREATE TABLE b_photo (
+  b_pno  INTEGER      NOT NULL COMMENT '게시판사진번호', -- 게시판사진번호
+  bphoto VARCHAR(255) NOT NULL COMMENT '사진', -- 사진
+  bno    INTEGER      NOT NULL COMMENT '게시판id' -- 게시판id
+)
+COMMENT '게시판사진';
+
+-- 게시판사진
+ALTER TABLE b_photo
+  ADD CONSTRAINT PK_b_photo -- 게시판사진 기본키
+    PRIMARY KEY (
+      b_pno -- 게시판사진번호
+    );
+
+ALTER TABLE b_photo
+  MODIFY COLUMN b_pno INTEGER NOT NULL AUTO_INCREMENT COMMENT '게시판사진번호';
+
+-- 여행클럽신고
+CREATE TABLE c_report (
+  mno       INTEGER  NOT NULL COMMENT '회원번호', -- 회원번호
+  cno       INTEGER  NOT NULL COMMENT '클럽게시판번호', -- 클럽게시판번호
+  c_rreason LONGTEXT NOT NULL COMMENT '신고사유', -- 신고사유
+  c_rresult INTEGER  NOT NULL COMMENT '처리결과', -- 처리결과
+  c_rdate   DATE     NOT NULL COMMENT '신고일자' -- 신고일자
+)
+COMMENT '여행클럽신고';
+
+-- 여행클럽신고
+ALTER TABLE c_report
+  ADD CONSTRAINT PK_c_report -- 여행클럽신고 기본키
+    PRIMARY KEY (
+      mno, -- 회원번호
+      cno  -- 클럽게시판번호
+    );
+
+-- 여행클럽신고
+ALTER TABLE c_report
+  ADD CONSTRAINT CK_c_report -- 여행클럽신고 체크 제약
+    CHECK (c_rresult = 1 or c_rresult = 0);
+
+-- 클럽사진
+CREATE TABLE c_photo (
+  c_pno INTEGER      NOT NULL COMMENT '클럽사진번호', -- 클럽사진번호
+  cno   INTEGER      NOT NULL COMMENT '클럽게시판번호', -- 클럽게시판번호
+  c_pho VARCHAR(255) NULL     COMMENT '사진' -- 사진
+)
+COMMENT '클럽사진';
+
+-- 클럽사진
+ALTER TABLE c_photo
+  ADD CONSTRAINT PK_c_photo -- 클럽사진 기본키
+    PRIMARY KEY (
+      c_pno -- 클럽사진번호
+    );
+
+ALTER TABLE c_photo
+  MODIFY COLUMN c_pno INTEGER NOT NULL AUTO_INCREMENT COMMENT '클럽사진번호';
+
+-- 신고게시판
+ALTER TABLE b_report
+  ADD CONSTRAINT FK_board_TO_b_report -- 게시글 -> 신고게시판
     FOREIGN KEY (
-      ano -- 관리자번호
+      bno -- 게시판id
     )
-    REFERENCES admin ( -- 관리자
-      ano -- 관리자번호
+    REFERENCES board ( -- 게시글
+      bno -- 게시판id
     );
 
 -- 신고게시판
-ALTER TABLE b_notify
-  ADD CONSTRAINT FK_board_TO_b_notify -- 게시판 -> 신고게시판
+ALTER TABLE b_report
+  ADD CONSTRAINT FK_member_TO_b_report -- 회원 -> 신고게시판
     FOREIGN KEY (
-      bno -- 게시판id
+      mno -- 회원번호
     )
-    REFERENCES board ( -- 게시판
-      bno -- 게시판id
+    REFERENCES member ( -- 회원
+      mno -- 회원번호
     );
 
--- 할인정보
-ALTER TABLE sale
-  ADD CONSTRAINT FK_admin_TO_sale -- 관리자 -> 할인정보
-    FOREIGN KEY (
-      ano -- 관리자번호
-    )
-    REFERENCES admin ( -- 관리자
-      ano -- 관리자번호
-    );
-
--- 클럽게시판
+-- 여행클럽
 ALTER TABLE club
-  ADD CONSTRAINT FK_member_TO_club -- 회원 -> 클럽게시판
+  ADD CONSTRAINT FK_member_TO_club -- 회원 -> 여행클럽
+    FOREIGN KEY (
+      mno -- 클럽방장
+    )
+    REFERENCES member ( -- 회원
+      mno -- 회원번호
+    );
+
+-- 게시글
+ALTER TABLE board
+  ADD CONSTRAINT FK_member_TO_board -- 회원 -> 게시글
     FOREIGN KEY (
       mno -- 회원번호
     )
@@ -347,14 +408,14 @@ ALTER TABLE club
       mno -- 회원번호
     );
 
--- 게시판
+-- 게시글
 ALTER TABLE board
-  ADD CONSTRAINT FK_member_TO_board -- 회원 -> 게시판
+  ADD CONSTRAINT FK_b_type_TO_board -- 게시판분류 -> 게시글
     FOREIGN KEY (
-      mno -- 회원번호
+      b_tno -- 게시판분류번호
     )
-    REFERENCES member ( -- 회원
-      mno -- 회원번호
+    REFERENCES b_type ( -- 게시판분류
+      b_tno -- 게시판분류번호
     );
 
 -- 게시판 댓글
@@ -369,11 +430,11 @@ ALTER TABLE b_reply
 
 -- 게시판 댓글
 ALTER TABLE b_reply
-  ADD CONSTRAINT FK_board_TO_b_reply -- 게시판 -> 게시판 댓글
+  ADD CONSTRAINT FK_board_TO_b_reply -- 게시글 -> 게시판 댓글
     FOREIGN KEY (
       bno -- 게시판id
     )
-    REFERENCES board ( -- 게시판
+    REFERENCES board ( -- 게시글
       bno -- 게시판id
     );
 
@@ -387,26 +448,6 @@ ALTER TABLE m_qna
       mno -- 회원번호
     );
 
--- 답변게시판
-ALTER TABLE a_qna
-  ADD CONSTRAINT FK_m_qna_TO_a_qna -- QnA게시판 -> 답변게시판
-    FOREIGN KEY (
-      m_qno -- QnA번호
-    )
-    REFERENCES m_qna ( -- QnA게시판
-      m_qno -- QnA번호
-    );
-
--- 답변게시판
-ALTER TABLE a_qna
-  ADD CONSTRAINT FK_admin_TO_a_qna -- 관리자 -> 답변게시판
-    FOREIGN KEY (
-      ano -- 관리자번호
-    )
-    REFERENCES admin ( -- 관리자
-      ano -- 관리자번호
-    );
-
 -- 탈퇴회원정보
 ALTER TABLE m_delete
   ADD CONSTRAINT FK_member_TO_m_delete -- 회원 -> 탈퇴회원정보
@@ -417,12 +458,54 @@ ALTER TABLE m_delete
       mno -- 회원번호
     );
 
--- FAQ게시판
-ALTER TABLE b_faq
-  ADD CONSTRAINT FK_admin_TO_b_faq -- 관리자 -> FAQ게시판
+-- 여행참여자
+ALTER TABLE c_member
+  ADD CONSTRAINT FK_member_TO_c_member -- 회원 -> 여행참여자
     FOREIGN KEY (
-      ano -- 관리자번호
+      mno -- 회원번호
     )
-    REFERENCES admin ( -- 관리자
-      ano -- 관리자번호
+    REFERENCES member ( -- 회원
+      mno -- 회원번호
+    );
+
+-- 여행참여자
+ALTER TABLE c_member
+  ADD CONSTRAINT FK_club_TO_c_member -- 여행클럽 -> 여행참여자
+    FOREIGN KEY (
+      cno -- 클럽게시판번호
+    )
+    REFERENCES club ( -- 여행클럽
+      cno -- 클럽게시판번호
+    );
+
+-- 게시판사진
+ALTER TABLE b_photo
+  ADD CONSTRAINT FK_board_TO_b_photo -- 게시글 -> 게시판사진
+    FOREIGN KEY (
+      bno -- 게시판id
+    )
+    REFERENCES board ( -- 게시글
+      bno -- 게시판id
+    );
+
+-- 여행클럽신고
+ALTER TABLE c_report
+  ADD CONSTRAINT FK_c_member_TO_c_report -- 여행참여자 -> 여행클럽신고
+    FOREIGN KEY (
+      mno, -- 회원번호
+      cno  -- 클럽게시판번호
+    )
+    REFERENCES c_member ( -- 여행참여자
+      mno, -- 회원번호
+      cno  -- 클럽게시판번호
+    );
+
+-- 클럽사진
+ALTER TABLE c_photo
+  ADD CONSTRAINT FK_club_TO_c_photo -- 여행클럽 -> 클럽사진
+    FOREIGN KEY (
+      cno -- 클럽게시판번호
+    )
+    REFERENCES club ( -- 여행클럽
+      cno -- 클럽게시판번호
     );

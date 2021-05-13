@@ -34,41 +34,41 @@ values ('3', '세컨핸즈샵');
 
 
 -- 꿀팁게시판 테이블 예제 데이터 삽입
-insert into board(bno, b_tno, mno, mname, btitle, bcontent, bcount, bdate)
-values ('1', '1', '1', 'aaa', '꿀팁1', '내용1', '1', '2020-1-1');
-insert into board(bno, b_tno, mno, mname, btitle, bcontent, bcount, bdate)
-values ('2', '1', '2', 'bbb', '꿀팁2', '내용2', '1', '2020-1-1');
-insert into board(bno, b_tno, mno, mname, btitle, bcontent, bcount, bdate)
-values ('3', '1', '3', 'ccc', '꿀팁3', '내용3', '1', '2020-1-1');
+insert into board(bno, b_tno, mno, btitle, bcontent, bcount, bdate)
+values ('1', '1', '1', '꿀팁1', '내용1', '1', '2020-1-1');
+insert into board(bno, b_tno, mno, btitle, bcontent, bcount, bdate)
+values ('2', '1', '2', '꿀팁2', '내용2', '1', '2020-1-1');
+insert into board(bno, b_tno, mno, btitle, bcontent, bcount, bdate)
+values ('3', '1', '3', '꿀팁3', '내용3', '1', '2020-1-1');
 
 -- 자유게시판 테이블 예제 데이터 삽입
-insert into board(bno, b_tno, mno, mname, btitle, bcontent, bcount, bdate)
-values ('4', '2', '4', 'ddd', '자유1', '내용1', '1', '2020-1-1');
-insert into board(bno, b_tno, mno, mname, btitle, bcontent, bcount, bdate)
-values ('5', '2', '5', 'eee', '자유2', '내용2', '1', '2020-1-1');
-insert into board(bno, b_tno, mno, mname, btitle, bcontent, bcount, bdate)
-values ('6', '2', '6', 'fff', '자유3', '내용3', '1', '2020-1-1');
+insert into board(bno, b_tno, mno, btitle, bcontent, bcount, bdate)
+values ('4', '2', '4', '자유1', '내용1', '1', '2020-1-1');
+insert into board(bno, b_tno, mno, btitle, bcontent, bcount, bdate)
+values ('5', '2', '5', '자유2', '내용2', '1', '2020-1-1');
+insert into board(bno, b_tno, mno, btitle, bcontent, bcount, bdate)
+values ('6', '2', '6', '자유3', '내용3', '1', '2020-1-1');
 
 -- 세컨핸즈게시판 테이블 예제 데이터 삽입
-insert into board(bno, b_tno, mno, mname, btitle, bcontent, bcount, bdate)
-values ('7', '3', '7', 'ggg', '세컨1', '내용1', '1', '2020-1-1');
-insert into board(bno, b_tno, mno, mname, btitle, bcontent, bcount, bdate)
-values ('8', '3', '8', 'hhh', '세컨2', '내용2', '1', '2020-1-1');
-insert into board(bno, b_tno, mno, mname, btitle, bcontent, bcount, bdate)
-values ('9', '3', '9', 'iii', '세컨3', '내용3', '1', '2020-1-1');
+insert into board(bno, b_tno, mno, btitle, bcontent, bcount, bdate)
+values ('7', '3', '7', '세컨1', '내용1', '1', '2020-1-1');
+insert into board(bno, b_tno, mno, btitle, bcontent, bcount, bdate)
+values ('8', '3', '8', '세컨2', '내용2', '1', '2020-1-1');
+insert into board(bno, b_tno, mno, btitle, bcontent, bcount, bdate)
+values ('9', '3', '9', '세컨3', '내용3', '1', '2020-1-1');
 
 
 -- 클럽 테이블 예제 데이터 삽입
-insert into club(cno, mno, mname, carrive, ctheme, ctitle, ccontent, csdt, cedt, ctotal)
-values ('1', '1', 'aaa', '부산', '1박2일', '치맥', '바다에서 먹읍시다', '2020-1-1', '2020-1-2', 5);
-insert into club(cno, mno, mname, carrive, ctheme, ctitle, ccontent, csdt, cedt, ctotal)
-values ('2', '2', 'bbb', '서울', '당일치기', '치맥', '바다에서 먹읍시다', '2020-1-1', '2020-1-2', 5);
-insert into club(cno, mno, mname, carrive, ctheme, ctitle, ccontent, csdt, cedt, ctotal)
-values ('3', '3', 'ccc', '대구', '3박4일', '치맥', '바다에서 먹읍시다', '2020-1-1', '2020-1-2', 5);
-insert into club(cno, mno, mname, carrive, ctheme, ctitle, ccontent, csdt, cedt, ctotal)
-values ('4', '4', 'ddd', '대전', '저녁', '치맥', '바다에서 먹읍시다', '2020-1-1', '2020-1-2', 5);
-insert into club(cno, mno, mname, carrive, ctheme, ctitle, ccontent, csdt, cedt, ctotal)
-values ('5', '5', 'eee', '경주', '점심', '치맥', '바다에서 먹읍시다', '2020-1-1', '2020-1-2', 5);
+insert into club(cno, mno, carrive, ctheme, ctitle, ccontent, csdt, cedt, ctotal)
+values ('1', '1', '부산', '1박2일', '치맥', '바다에서 먹읍시다', '2020-1-1', '2020-1-2', 5);
+insert into club(cno, mno, carrive, ctheme, ctitle, ccontent, csdt, cedt, ctotal)
+values ('2', '2', '서울', '당일치기', '치맥', '바다에서 먹읍시다', '2020-1-1', '2020-1-2', 5);
+insert into club(cno, mno, carrive, ctheme, ctitle, ccontent, csdt, cedt, ctotal)
+values ('3', '3', '대구', '3박4일', '치맥', '바다에서 먹읍시다', '2020-1-1', '2020-1-2', 5);
+insert into club(cno, mno, carrive, ctheme, ctitle, ccontent, csdt, cedt, ctotal)
+values ('4', '4', '대전', '저녁', '치맥', '바다에서 먹읍시다', '2020-1-1', '2020-1-2', 5);
+insert into club(cno, mno, carrive, ctheme, ctitle, ccontent, csdt, cedt, ctotal)
+values ('5', '5', '경주', '점심', '치맥', '바다에서 먹읍시다', '2020-1-1', '2020-1-2', 5);
 
 
 

@@ -38,6 +38,7 @@
     <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
     -->
 
+    <!-- 애노테이션 처리와 모든 관련된 빈 클래스를 자동 등록하는 선언한다! 유지 보수에 좋다. 애노테이션과 관련된 5개의 클래스를 자동 등록해준다-->
     <context:annotation-config/>
 
     <!-- 같은 타입(Engine)의 의존 객체가 여러 개 있을 때? 

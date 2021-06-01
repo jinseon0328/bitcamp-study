@@ -4,7 +4,7 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
     
-    <!-- 호출할 생성자 지정하기 -->
+    <!-- 생성자가 여러개 일 때 호출할 생성자 지정하기 -->
     
     <!-- 생성자의 파라미터 값을 주지 않으면 기본 생성자가 호출된다.  -->
     <bean id="c1" class="com.eomcs.spring.ioc.ex03.Car"/>
@@ -50,6 +50,7 @@
             <value type="int">1980</value>
         </constructor-arg>
     </bean>
+    <!-- String이 우선이므로 int, String 순으로 호출해도 String, int 순으로 호출한다 -->
     <bean id="c6" class="com.eomcs.spring.ioc.ex03.Car">
         <constructor-arg>
             <value type="int">1980</value>

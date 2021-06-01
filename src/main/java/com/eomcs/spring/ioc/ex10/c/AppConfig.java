@@ -14,7 +14,7 @@ import com.eomcs.spring.ioc.ex10.Car;
 // => .properties 파일을 데이터를 메모리에 로딩하는 일을 한다.
 // => 파일 경로가 클래스 경로를 가리킨다면,
 //    파일 경로 앞에 "classpath:" 접두어를 붙여라.
-@PropertySource({
+@PropertySource({ //자바 스크립트에서는 자바경로를 초기화 하는 것이 {} 자바에서는 {}은 배열이다
   "classpath:com/eomcs/spring/ioc/ex10/c/jdbc.properties",
   "classpath:com/eomcs/spring/ioc/ex10/c/jdbc2.properties"
 })

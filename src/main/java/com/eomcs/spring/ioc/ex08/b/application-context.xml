@@ -42,7 +42,7 @@
             BeanPostProcessor(객체 생성 후 처리기) 인 것이다.
     -->
     
-
+        <!--  AutowiredAnnotation 만나면 처리하는 놈 -> 컨테이너가 빈 객체를 생성이 후에 뭔가를 처리하는 놈 (빈 생성 후 공정 처리기)  -->
     <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
 
     

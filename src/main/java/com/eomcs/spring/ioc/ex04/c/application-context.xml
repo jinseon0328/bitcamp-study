@@ -39,6 +39,7 @@
              ref="객체이름"
         -->
         <property name="engine" ref="e1"/>
+        <!-- 주소를 줄 때는 reference -->
     </bean>
     <!-- 
       Car c1 = new Car();
@@ -55,6 +56,7 @@
           p:maker="비트자동차" 
           p:cc="890" 
           p:engine-ref="e2"/>
+          <!-- 기존에 생성한 주소의 프로퍼티를 줄 때는 -을 하면 된다 -->
           
 </beans>
 

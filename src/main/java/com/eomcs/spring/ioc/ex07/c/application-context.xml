@@ -21,6 +21,7 @@
          만약 CustomEditorConfigurer 객체가 정의되어 있다면 
          그 객체를 설정파일에 정의된 대로 만들고 준비시킨다.
          그리고 프로퍼티 값을 저장할 때 이 객체에 정의된 프로퍼티 에디터를 사용할 것이다.   -->
+                                   <!--개발자가 만든 에디터를 설정하게 도와주는 자 -->
     <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
 	    <property name="customEditors"> 
 	        <!-- setCustomEditor(Map<Class,Class> param) {...} -->

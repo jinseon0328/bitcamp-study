@@ -70,6 +70,21 @@ values ('4', '4', '대전', '저녁', '치맥', '바다에서 먹읍시다', '20
 insert into club(cno, mno, carrive, ctheme, ctitle, ccontent, csdt, cedt, ctotal)
 values ('5', '5', '경주', '점심', '치맥', '바다에서 먹읍시다', '2020-1-1', '2020-1-2', 5);
 
+--qna 테이블 예제 데이터 삽입
+insert into m_qna(m_qno, mno, m_qdate, m_qtitle, m_qcontent, a_qcontent, a_qdate)
+values ('1', '1', '2021-06-04', '문의1', '문의합니다', '답변합니다', '2021-06-04');
+insert into m_qna(m_qno, mno, m_qdate, m_qtitle, m_qcontent, a_qcontent, a_qdate)
+values ('2', '2', '2021-06-04', '문의2', '문의합니다', '답변합니다', '2021-06-04');
+insert into m_qna(m_qno, mno, m_qdate, m_qtitle, m_qcontent, a_qcontent, a_qdate)
+values ('3', '3', '2021-06-04', '문의3', '문의합니다', '답변합니다', '2021-06-04');
+insert into m_qna(m_qno, mno, m_qdate, m_qtitle, m_qcontent, a_qcontent, a_qdate)
+values ('4', '4', '2021-06-04', '문의4', '문의합니다', '답변합니다', '2021-06-04');
+insert into m_qna(m_qno, mno, m_qdate, m_qtitle, m_qcontent, a_qcontent, a_qdate)
+values ('5', '5', '2021-06-04', '문의5', '문의합니다', '답변합니다', '2021-06-04');
+insert into m_qna(m_qno, mno, m_qdate, m_qtitle, m_qcontent, a_qcontent, a_qdate)
+values ('6', '6', '2021-06-04', '문의6', '문의합니다', '답변합니다', '2021-06-04');
+insert into m_qna(m_qno, mno, m_qdate, m_qtitle, m_qcontent, a_qcontent, a_qdate)
+values ('7', '7', '2021-06-04', '문의7', '문의합니다', '답변합니다', '2021-06-04');
 
 
 

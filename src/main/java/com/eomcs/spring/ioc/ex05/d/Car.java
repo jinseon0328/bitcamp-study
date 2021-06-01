@@ -8,6 +8,11 @@ public class Car {
   int cc;
   Properties options;
 
+  public Car() {
+    Properties props = new Properties();
+    //JDBC 프로퍼티를 저장하는 용도
+  }
+
   @Override
   public String toString() {
     return "Car [model=" + model + ", maker=" + maker + ", cc=" + cc + ", options=" + options + "]";

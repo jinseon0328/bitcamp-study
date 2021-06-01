@@ -19,7 +19,7 @@
     <bean id="c1" class="com.eomcs.spring.ioc.ex02.Car" />
     <bean id="c2" class="com.eomcs.spring.ioc.ex02.Car" scope="singleton"/>
     
-    <!-- prototype 객체는 getBean()을 호출할 때 생성된다. -->
+    <!-- prototype 객체는 getBean()을 호출할 때 생성된다. prototype은 원형을 의미한다 -> getBean 호출할 때마다 객체를 새롭게 만든다 -->
     <bean id="c3" class="com.eomcs.spring.ioc.ex02.Car" scope="prototype"/>
 </beans>
 

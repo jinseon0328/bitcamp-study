@@ -20,6 +20,7 @@ public class Exam01 {
     // 2) 객체 타입으로 꺼내기
     System.out.println(iocContainer.getBean(Car.class));
 
+    // 1)2)는 둘다 같은 객체다. 컨테이너는 쓸데없이 객체 여러개 만들지 않는다.
     System.out.println("실행 완료!");
   }
 }
